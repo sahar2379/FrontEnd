@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>درباره ما</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./photo/golafrooz-1.png">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="./assets/css/vendor.min.css">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/font/bootstrap-icons.css">
+
+  <!-- CSS Front Template -->
+  <link rel="stylesheet" href="./assets/css/theme.min.css?v=1.0">
+</head>
+
+<body>
+  <!-- ========== HEADER ========== -->
+   
+  <header id="header"class="navbar navbar-expand-lg navbar-end navbar-light custom-navbar-bg">
+    <style>
+      .custom-navbar-bg {
+        background-color: #0E3160 !important;
+      }
+    </style>
+    
+    <div class="container">
+      <nav class="js-mega-menu navbar-nav-wrap">
+        <!-- Default Logo -->
+         
+        <a class="navbar-brand" href="/index.html" aria-label="Front">
+          <img class="navbar-brand-logo"src="/golafrooz-1.png" alt="Logo">
+        </a>
+        <!-- End Default Logo -->
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-default">
+            <i class="bi-list"></i>
+          </span>
+          <span class="navbar-toggler-toggled">
+            <i class="bi-x"></i>
+          </span>
+        </button>
+        <!-- End Toggler -->
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="/index.html">صفحه اصلی</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="hs-has-sub-menu nav-item">
+              <a id="listingsDropdown" class="hs-mega-menu-invoker nav-link dropdown-toggle text-white" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">لیست محصولات</a>
+              <div class="hs-sub-menu dropdown-menu" aria-labelledby="listingsDropdown" style="min-width: 14rem;">
+                <a class="dropdown-item " href="/products-list.html">فهرست</a>
+                <a class="dropdown-item " href="/products-grid.html">فهرست (شبکه)</a>
+              </div>
+            </li>
+            <!-- End Dropdown -->
+
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/product-overview.html">بررسی اجمالی محصولات</a>
+            </li>
+
+            <!-- Pages -->
+            <li class="hs-has-mega-menu nav-item" data-hs-mega-menu-item-options='{
+                  "desktop": {
+                    "position": "right",
+                    "maxWidth": "27rem"
+                  }
+                }'>
+              <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle text-white" aria-current="page" href="#"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">صفحات</a>
+
+              <!-- Mega Menu -->
+              <div class="hs-mega-menu dropdown-menu" aria-labelledby="pagesMegaMenu" style="min-width: 27rem;">
+                <div class="navbar-dropdown-menu-inner">
+                  <span class="dropdown-header">عناصر</span>
+
+                  <div class="row">
+                    <div class="col-sm mb-3 mb-sm-0">
+                      <a class="dropdown-item " href="/categories.html">دسته بندی ها</a>
+                      <a class="dropdown-item " href="/categories-sidebar.html">نوار کناری دسته ها</a>
+                      <a class="dropdown-item " href="/empty-cart.html">سبد خالی</a>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm">
+                      <a class="dropdown-item " href="/cart.html">سبد خرید</a>
+                      <a class="dropdown-item " href="/checkout.html">بررسی</a>
+                      <a class="dropdown-item " href="/order-completed.html">سفارش تکمیل شد</a>
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+
+                <!-- Mega Menu Banner -->
+                <div class="navbar-dropdown-menu-shop-banner">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img class="navbar-dropdown-menu-shop-banner-img" src="/assets/img/mockups/img4.png"
+                        alt="Image Description">
+                    </div>
+
+                    <div class="flex-grow-1 p-4">
+                      <span class="h4 d-block text-primary">برنده تی شرت</span>
+                      <p>یکی از تی شرت های برند Front ما را برنده شوید.</p>
+                      <a class="btn btn-sm btn-soft-primary btn-transition" href="/index.html">بیشتر بدانید <i
+                          class="bi-chevron-left small"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Mega Menu Banner -->
+              </div>
+              <!-- End Mega Menu -->
+            </li>
+            <!-- End Pages -->
+
+            <li class="nav-item">
+              <!-- Search -->
+              <button class="btn btn-ghost-secondary btn-icon" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbarSearch" aria-controls="offcanvasNavbarSearch">
+                <i class="bi-search"></i>
+              </button>
+              <!-- End Search -->
+
+              <!-- Shopping Cart -->
+              <button type="button" class="btn btn-ghost-secondary btn-icon" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbarShoppingCart" aria-controls="offcanvasNavbarShoppingCart">
+                <i class="bi-basket"></i>
+                <span class="cart-item-count ">3</span>
+              </button>
+              <!-- End Shopping Cart -->
+
+              <a class="btn btn-primary btn-transition" href="./page-login-simple.html">ورود</a>
+            </li>
+          </ul>
+        </div>
+        <!-- End Collapse -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Gallery -->
+    <div class="container content-space-t-3 content-space-t-lg-5">
+      <div class="w-lg-75 text-center mx-lg-auto">
+        <!-- Heading -->
+        <div class="mb-5 mb-md-10">
+          <h1 class="display-4">درباره ما</h1>
+          <p class="lead">شرکت گل افروز با هدف ارتقای سطح کشاورزی و ارائه راه‌حل‌های نوین برای کشت گل و گیاه، تأسیس شده است.</p>
+        </div>
+        <!-- End Heading -->
+      </div>
+
+      <div class="row gx-3">
+        <div class="col mb-3">
+          <div class="bg-img-start" style="background-image: url(./images/about-img/01.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-3 d-none d-md-block mb-3">
+          <div class="bg-img-start" style="background-image: url(./images/about-img/02.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col mb-3">
+          <div class="bg-img-start" style="background-image: url(./images/about-img/03.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+
+        <div class="w-100"></div>
+
+        <div class="col mb-3 mb-md-0">
+          <div class="bg-img-start" style="background-image: url(./images/about-img/04.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-4 d-none d-md-block mb-3 mb-md-0">
+          <div class="bg-img-start" style="background-image: url(./images/about-img/05.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col">
+          <div class="bg-img-start" style="background-image: url(./images/about-img/06.jpg); height: 15rem;"></div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Gallery -->
+
+    <!-- Feature Stats -->
+    <div class="container content-space-2 content-space-lg-3">
+      <div class="row justify-content-lg-center">
+        <div class="col-sm-4 col-lg-3 mb-7 mb-sm-0">
+          <div class="text-center">
+            <h2 class="display-4">3479</h2>
+            <p class="large">فروش موفق</p>
+          </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-4 col-lg-3 mb-7 mb-sm-0">
+          <div class="text-center">
+            <h2 class="display-4">78k+</h2>
+            <p class="large">نفر بازدیدکننده تا به امروز</p>
+          </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-4 col-lg-3">
+          <div class="text-center">
+            <h2 class="display-4">۲۷۶</h2>
+            <p class="large">فروشگاه فعال و موفق</p>
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Feature Stats -->
+
+    <div class="border-top mx-auto" style="max-width: 25rem;"></div>
+
+    <!-- Info -->
+    <div class="container content-space-2 content-space-lg-3">
+      <div class="row justify-content-lg-between">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h2>ابزارها باید با گلخانه سازگار شوند، نه برعکس.</h2>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-lg-6">
+          <p>ما با بهره‌گیری از دانش روز دنیا، تجهیزات مدرن و هوش مصنوعی، به دنبال ایجاد گلخانه‌هایی هوشمند و پربازده هستیم که ضمن افزایش کیفیت و کمیت محصولات، به حفظ منابع طبیعی و محیط زیست نیز کمک می‌کنند.</p>
+          <p>احتراما شرکا گلخانه سازی پالیز کامیاب گل افروز از سال ۱۳۸۴ فعالیت خود را به صورت مستمر آغاز نموده و در راستای ساخت و تجهیز صدها پروژه در سطح ملی و بین المللی فعالیت نموده است. که با شماره: ۴۴۶۲۳ در تهران بزرگ به ثبت رسیده است. شرکت گلخانه سازی گل افروز مساحتی بالغ بر ۹۵ هکتار از سال ۱۳۹۸ تا اکنون را از اراضی مهین عزیزمان را به گلخانه های صنعتی و مدرن و هوشمند تبدیل نموده است. شرکت ما مفتخر است که همزمان با تولید تجهیزات سازه ای از مرحله ی طراحی و ساخت تا به ثمر رسیدن محصولات گلخانه با بالاترین سطح کیفی در بازارهای داخلی و خارجی فعالیت موثر و موفق داشته است. هم اکنون ۳۶ نفر به طور مستقیم و حدودا ۴۵۰ نفر به صورت غیر مستقیم در این مجموعه مشغول به کار هستند.</p>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Info -->
+
+    <div class="border-top mx-auto" style="max-width: 25rem;"></div>
+
+    <!-- Team -->
+    <div class="container content-space-2 content-space-lg-3">
+      <!-- Heading -->
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+        <span class="text-cap">تیم ما</span>
+        <h2>پشتیبانان برتر</h2>
+      </div>
+      <!-- End Heading -->
+
+      <div class="row gx-3 mb-5">
+        <div class="col-sm-6 col-lg-3 mb-3">
+          <!-- Card -->
+          <div class="card card-transition h-100">
+            <div class="card-body">
+              <div class="avatar avatar-lg avatar-circle mb-4">
+                <img class="avatar-img" src="./images/employees/1.jpg" alt="Image Description">
+              </div>
+
+              <span class="card-subtitle"> مدیر عامل</span>
+              <h4 class="card-title">الناز لقمانی</h4>
+              <p class="card-text">مشاور ارشد اماده پاسخگویی به شما مشتریان گرامی می باشد.</p>
+            </div>
+
+            <div class="card-footer pt-0 pt-0 d-flex justify-content-center">
+              <button type="button" class="btn btn-outline-primary">تماس</button>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-6 col-lg-3 mb-3">
+          <!-- Card -->
+          <div class="card card-transition h-100">
+            <div class="card-body">
+              <div class="avatar avatar-lg avatar-circle mb-4">
+                <img class="avatar-img" src="./images/employees/5.jpg" alt="Image Description">
+              </div>
+
+              <span class="card-subtitle">مشاور پیمانکاری</span>
+              <h4 class="card-title">آناهیتا منفرد</h4>
+              <p class="card-text">برای ساخت گلخانه خود نیاز به پیمانکار دارید؟با من تماس بگیرید تا بهترین پیمانکاران را به شما معرفی کنم.</p>
+            </div>
+
+            <div class="card-footer pt-0 d-flex justify-content-center">
+              <button type="button center" class="btn btn-outline-primary">تماس</button>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-6 col-lg-3 mb-3">
+          <!-- Card -->
+          <div class="card card-transition h-100">
+            <div class="card-body">
+              <div class="avatar avatar-lg avatar-circle mb-4">
+                <img class="avatar-img" src="./images/employees/4.jpg" alt="Image Description">
+              </div>
+
+              <span class="card-subtitle">مشاور سازه</span>
+              <h4 class="card-title">سارا کیانی</h4>
+              <p class="card-text">از هر شهر یا استانی که باشید بهترین سازه به شما پیشنهاد می شود.</p>
+            </div>
+
+            <div class="card-footer pt-0 d-flex justify-content-center">
+              <button type="button center" class="btn btn-outline-primary">تماس</button>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-6 col-lg-3 mb-3">
+          <!-- Card -->
+          <div class="card card-transition h-100">
+            <div class="card-body">
+              <div class="avatar avatar-lg avatar-circle mb-4">
+                <img class="avatar-img" src="./images/employees/6.jpg" alt="Image Description">
+              </div>
+
+              <span class="card-subtitle">مشاور تسهیلات بانکی</span>
+              <h4 class="card-title">سارا مهری</h4>
+              <p class="card-text">جهت اطلاع از نحوه پرداخت و شرایط تسهیلات و اقساط با من در ارتباط باشید.</p>
+            </div>
+
+            <div class="card-footer pt-0 d-flex justify-content-center">
+              <button type="button center" class="btn btn-outline-primary">تماس</button>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+
+      <!-- Card Info -->
+      <div class="text-center">
+        <div class="card card-info-link card-sm">
+          <div class="card-body">
+            میخواهی با ما کار کنی؟ <a class="card-link ms-2" href="./page-hire-us.html">استخدام می کنیم<span class="bi-chevron-left small me-1"></span></a>
+          </div>
+        </div>
+      </div>
+      <!-- End Card Info -->
+    </div>
+    <!-- End Team -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  
+
+  <!-- ========== SECONDARY CONTENTS ========== -->
+
+
+  <!-- Go To -->
+  <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;" data-hs-go-to-options='{
+       "offsetTop": 700,
+       "position": {
+         "init": {
+           "right": "2rem"
+         },
+         "show": {
+           "bottom": "2rem"
+         },
+         "hide": {
+           "bottom": "-2rem"
+         }
+       }
+     }'>
+    <i class="bi-chevron-up"></i>
+  </a>
+  <!-- ========== END SECONDARY CONTENTS ========== -->
+
+  <!-- JS Implementing Plugins -->
+  <script src="./assets/js/vendor.min.js"></script>
+
+  <!-- JS Front -->
+  <script src="./assets/js/theme.min.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    (function() {
+      // INITIALIZATION OF HEADER
+      // =======================================================
+      new HSHeader('#header').init()
+
+
+      // INITIALIZATION OF MEGA MENU
+      // =======================================================
+      new HSMegaMenu('.js-mega-menu', {
+          desktop: {
+            position: 'left'
+          }
+        })
+
+
+      // INITIALIZATION OF SHOW ANIMATIONS
+      // =======================================================
+      new HSShowAnimation('.js-animation-link')
+
+
+      // INITIALIZATION OF BOOTSTRAP VALIDATION
+      // =======================================================
+      HSBsValidation.init('.js-validate', {
+        onSubmit: data => {
+          data.event.preventDefault()
+          alert('Submited')
+        }
+      })
+
+
+      // INITIALIZATION OF BOOTSTRAP DROPDOWN
+      // =======================================================
+      HSBsDropdown.init()
+
+
+      // INITIALIZATION OF GO TO
+      // =======================================================
+      new HSGoTo('.js-go-to')
+    })()
+  </script>
+</body>
+</html>
