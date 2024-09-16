@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splide Example</title>
+  
+  <!-- لینک استایل Splide -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css">
+
+</head>
+<body style="background: linear-gradient(0.05deg, #FFFF, #0E3160); height: 122px">
+<div>
+   <style>
+        .profile-img {
+            width: 100px; /* عرض پیش‌فرض */
+            height: 100px; /* ارتفاع پیش‌فرض */
+            border-radius: 50%; /* دایره‌ای کردن تصویر */
+            object-fit: cover; /* تطبیق محتوا با کادر */
+            display: block;
+            margin: 0 auto; /* قرار دادن تصویر در مرکز */
+            border: 2px solid #D1913E; /* اضافه کردن border به تصویر */
+          }
+
+          /* ریسپانسیو برای صفحه‌های کوچکتر از 768px (مثلاً موبایل) */
+          @media (max-width: 768px) {
+            .profile-img {
+              width: 70px; /* عرض کوچکتر برای موبایل */
+              height: 70px; /* ارتفاع کوچکتر برای موبایل */
+            }
+          }
+
+          /* ریسپانسیو برای صفحه‌های خیلی کوچک‌تر از 480px (موبایل‌های کوچک) */
+          @media (max-width: 480px) {
+            .profile-img {
+              width: 70px; /* عرض کوچکتر برای موبایل‌های کوچک */
+              height: 70px; /* ارتفاع کوچکتر برای موبایل‌های کوچک */
+            }
+          }
+
+    </style>
+
+    <style>
+        /* استایل سفارشی برای اسلایدر */
+        .splide__slide {
+          padding-top: 5px;
+          text-align: center;
+          font-size: 24px;
+
+        }
+
+
+        /* استایل برای تصویر دایره‌ای */
+        .profile-img {
+          width: 100px;  /* سایز پیش‌فرض */
+          height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+          display: block;
+          margin: 0 auto;
+        }
+
+        /* ریسپانسیو برای صفحه‌های کوچکتر از 768px */
+        @media (max-width: 768px) {
+          .profile-img {
+            width: 100px;  /* کاهش سایز برای موبایل */
+            height: 100px;
+          }
+        }
+
+        /* ریسپانسیو برای صفحه‌های خیلی کوچک‌تر از 480px */
+        @media (max-width: 480px) {
+          .profile-img {
+            width: 100px;  /* کاهش بیشتر سایز برای موبایل‌های کوچک */
+            height: 100px;
+          }
+        }
+        /* مخفی کردن دکمه‌های pagination */
+    .splide__pagination {
+        display: none;
+      }
+
+      /* مخفی کردن دکمه‌های navigation (arrows) */
+      .splide__arrows {
+        display: none;
+      }
+
+      .splide {
+        border: none; /* حذف حاشیه از عنصر اصلی اسلایدر */
+        box-shadow: none; /* حذف سایه در صورت وجود */
+        margin-block-start:-8px ;
+      }
+      .splide__track {
+        border: none;
+    /* حذف حاشیه از ناحیه پیمایش اسلایدر */
+      }
+      .splide__slide {
+        border: none; /* حذف حاشیه از هر اسلاید */
+        
+      }
+
+      .splide, .splide__track, .splide__slide {
+        border: none !important;
+        box-shadow: none !important;
+      }
+
+      </style>
+
+  <div id="splide" class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+            <img class="profile-img" src="/shop-profile/shop01.png" alt="shoping profile">
+        </li>
+        <li class="splide__slide">
+            <img class="profile-img" src="/shop-profile/shop02.jpg" alt="shoping profile">
+        </li>
+        <li class="splide__slide">
+            <img class="profile-img" src="/shop-profile/shop03.jpg" alt="shoping profile">
+        </li>
+        <li class="splide__slide">
+            <img class="profile-img" src="/shop-profile/shop04.jpg" alt="shoping profile">
+        </li>
+        <li class="splide__slide">
+            <img class="profile-img" src="/shop-profile/shop05.jpg" alt="shoping profile">
+        </li>
+        <li class="splide__slide">
+            <img class="profile-img" src="/shop-profile/shop06.jpg" alt="shoping profile">
+        </li>
+        <li class="splide__slide">
+            <img class="profile-img" src="/shop-profile/shop07.jpg" alt="shoping profile">
+        </li>
+        <li class="splide__slide">
+            <img class="profile-img" src="/shop-profile/shop08.jpg" alt="shoping profile">
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  <!-- لینک جاوااسکریپت Splide -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+
+  <!-- لینک صحیح افزونه AutoScroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.0/dist/js/splide-extension-auto-scroll.min.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // ایجاد و تنظیم Splide
+      new Splide('#splide', {
+        type   : 'loop',
+        drag   : 'free',
+        focus  : 'center',
+        autoStart : true,
+        autoScroll: {
+          speed: 1,
+        },
+        perPage: 10, // پیش‌فرض: نمایش 10 تصویر در صفحه بزرگ
+        gap: '0px', // فاصله بین اسلایدها
+        breakpoints: {
+          768: {
+            perPage: 4, // در موبایل: نمایش 4 تصویر
+            gap: '8px',  // فاصله کمتر بین تصاویر در موبایل
+          },
+          480: {
+            perPage: 2, // برای موبایل‌های کوچک‌تر: نمایش 2 تصویر
+            gap: '6px',  // فاصله کمتر بین تصاویر در موبایل‌های کوچک
+          },
+        },
+      }).mount(window.splide.Extensions);
+    });
+  </script>
+
+
+
+</body>
+</html>

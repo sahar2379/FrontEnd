@@ -10,7 +10,7 @@
   <title>فروشگاه | جلو - قالب چند منظوره پاسخگو</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/golafrooz-1.png">
+  <link rel="shortcut icon" href="images/golafrooz-1.png">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -21,22 +21,23 @@
 
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="/assets/css/theme.min.css?v=1.0">
+  
+
 </head>
 
 <body>
   <!-- ========== HEADER ========== -->
-   
+
   <header id="header"class="navbar navbar-expand-lg navbar-end navbar-light custom-navbar-bg">
     <style>
       .custom-navbar-bg {
         background-color: #0E3160 !important;
       }
     </style>
-    
+
     <div class="container">
       <nav class="js-mega-menu navbar-nav-wrap">
         <!-- Default Logo -->
-         
         <a class="navbar-brand" href="/images/index.html" aria-label="Front">
           <img class="navbar-brand-logo"src="/images/golafrooz-1.png" alt="Logo">
         </a>
@@ -158,153 +159,230 @@
 
   <!-- ========== END HEADER ========== -->
 
-  <!-- ========== MAIN CONTENT ========== -->
+  <!-- ========== IFRAME SPLIDE ========== -->
+  <iframe src="/slider-example.html" width="100%" height="130" style="border:none;">
+  </iframe>
+
+
+
+    <!-- کنترل‌های اسلایدر -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#storyCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">قبلی</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#storyCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">بعدی</span>
+    </button>
+  </div>
+  
+
   <main id="content" role="main">
     <!-- Hero -->
     <div class="position-relative">
       <!-- Swiper Main Slider -->
-      <div class="js-swiper-shop-classic-hero swiper bg-light">
+      <style>
+        .grid-container {
+            display: grid;
+            height: 150px;
+            align-content: center;
+            grid-template-columns: center center center;
+            gap: 50px;
+            background: linear-gradient(0.1deg, #ffffff, #D1913E); /* گرادیانت از زرد به سفید */
+            padding: 10px;
+        }
+
+        /* استایل ریسپانسیو برای موبایل */
+        @media (max-width: 768px) {
+          .grid-container {
+            grid-template-columns: repeat(2, 1fr); /* دو ستون در صفحه نمایش‌های کوچکتر */
+            height: auto; /* ارتفاع خودکار در حالت موبایل */
+            padding: 5px; /* کاهش فاصله‌های داخلی */
+          }
+        }
+
+        @media (max-width: 576px) {
+          .grid-container {
+            grid-template-columns: 1fr; /* یک ستون در نمایشگرهای خیلی کوچک */
+            height: auto;
+            padding: 5px;
+          }
+        }
+      </style>
+
+      <style>
+        /* استایل‌های مشترک */
+        .swiper-slide h1, .swiper-slide p {
+          text-align: start; /* تنظیم متن‌ها به حالت استارت (چپ‌چین) به طور پیش‌فرض */
+        }
+
+        .swiper-slide img {
+          display: block;
+          margin: 0 auto; /* وسط‌چین کردن تصویر */
+        }
+
+        /* استایل برای حالت موبایل */
+        @media (max-width: 576px) {
+          .swiper-slide {
+            text-align: center; /* وسط‌چین کردن متن‌ها در حالت موبایل */
+
+          }
+
+          .swiper-slide .container {
+            padding: 1rem 0.5rem; /* کاهش فاصله کانتینر برای موبایل */
+          }
+
+          .swiper-slide h1 {
+            font-size: 0.5rem; /* کاهش اندازه فونت عنوان */
+          }
+
+          .swiper-slide p {
+            font-size: 14px; /* کاهش اندازه فونت متن توضیحات */
+          }
+
+          .swiper-slide .btn {
+            font-size: 12px; /* کاهش اندازه دکمه */
+          }
+
+          .swiper-slide img {
+            max-width: 70%; /* کوچک‌تر کردن عکس */
+            height: auto;
+          }
+
+          .swiper-slide .row {
+            display: flex;
+            flex-direction: column-reverse; /* ترتیب ستون‌ها برای موبایل */
+            align-items: center; /* وسط‌چین کردن محتوا */
+          }
+
+          .swiper-slide .col-lg-5, .swiper-slide .col-lg-6 {
+            max-width: 100%;
+            text-align: center; /* وسط‌چین کردن ستون‌ها */
+            margin-bottom: 1rem; /* فاصله بین ستون‌ها */
+          }
+
+          .swiper-slide .d-flex {
+            justify-content: center; /* وسط‌چین کردن دکمه‌ها */
+          }
+        }
+      </style>
+      <div class="js-swiper-shop-classic-hero swiper" style="max-width: 100%; height: 400px; margin: 0 auto;">
         <div class="swiper-wrapper">
-          <!-- Slide -->
+          <!-- Slide 1 -->
           <div class="swiper-slide">
-            <!-- Container -->
-            <div class="container content-space-t-2 content-space-b-3">
+            <div class="container content-space-t-0.5 content-space-b-3">
               <div class="row align-items-lg-center">
                 <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                   <div class="mb-6">
-                    <h1 class="display-4 dir="rtl" style="font-family: Arial;">موتور ژنراتور مدلIsuzu DD-6BG1T</h1>
-                    <p>این نوع ژنراتور به خاطر کارایی بالا و صدای کم مشهور است و در مکان‌هایی مثل ساخت و ساز، معدن و تأمین برق اضطراری برای تجهیزات حیاتی مانند گلخانه های صنعتی بیمارستان‌ها به کار می‌رود.</p>
+                    <h1 class="display-4" dir="rtl" style="font-family: Arial; font-size: 28px;">موتور ژنراتور مدل Isuzu DD-6BG1T</h1>
+                    <p class="d-none d-md-block">این نوع ژنراتور به خاطر کارایی بالا و صدای کم مشهور است و در مکان‌هایی مثل ساخت و ساز، معدن و تأمین برق اضطراری برای تجهیزات حیاتی مانند گلخانه های صنعتی بیمارستان‌ها به کار می‌رود.</p>
                   </div>
-
                   <div class="d-flex gap-2">
-                    <a class="btn btn-primary rounded-pill" href="#">نمایش جزئیات محصول</a>
+                    <a class="btn btn-primary btn-sm rounded-pill" href="#">نمایش جزئیات محصول</a>
                   </div>
                 </div>
-                <!-- End Col -->
-
                 <div class="col-lg-6 order-lg-1">
-                  <div class="w-75 mx-auto">
-                    <img class="img-fluid" src="/images/index/generator01.png" alt="Image Description">
+                  <div class="w-50 mx-auto">
+                    <img class="img-fluid" src="/images/index/generator01.png" alt="Image Description" style="max-width: 100%; height: auto;">
                   </div>
                 </div>
-                <!-- End Col -->
               </div>
-              <!-- End Row -->
             </div>
-            <!-- End Container -->
           </div>
-          <!-- End Slide -->
-
-          <!-- Slide -->
+          <!-- Slide 2 -->
           <div class="swiper-slide">
-            <!-- Container -->
-            <div class="container content-space-t-2 content-space-b-3">
+            <div class="container content-space-t-0.5 content-space-b-3">
               <div class="row align-items-lg-center">
                 <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                   <div class="mb-6">
-                    <h2 class="display-4 mb-4 dir="rtl" style="font-family: Arial;">مشعل گازوئیلی مدل GL110</h2>
-                    <p>مدل مشعل : مشعل گازوئیلی GL110
-                      ظرفیت حرارتی : 50000 الی 110000 کیلو کالری در ساعت</p>
+                    <h2 class="display-4" dir="rtl" style="font-family: Arial; font-size: 28px;">مشعل گازوئیلی مدل GL110</h2>
+                    <p class="d-none d-md-block">مدل مشعل : مشعل گازوئیلی GL110 ظرفیت حرارتی : 50000 الی 110000 کیلو کالری در ساعت</p>
                   </div>
-
                   <div class="d-flex gap-2">
-                    <a class="btn btn-primary rounded-pill" href="#">نمایش جزئیات محصول</a>
-
+                    <a class="btn btn-primary btn-sm rounded-pill" href="#">نمایش جزئیات محصول</a>
                   </div>
                 </div>
-                <!-- End Col -->
-
-                <div class="col-lg-6 order-lg-1">
-                  <div class="w-75 mx-auto">
-                    <img class="img-fluid" src="/images/index/mashal gazoeili.png" alt="Image Description">
+                <div class="col-lg-6 order-lg-1 d-flex align-items-start">
+                  <div class="w-50 mx-auto mb-2">
+                    <img class="img-fluid" src="/images/index/mashal gazoeili.png" alt="Image Description" style="max-width: 100%; height: auto;">
                   </div>
                 </div>
-                <!-- End Col -->
               </div>
-              <!-- End Row -->
             </div>
-            <!-- End Container -->
           </div>
-          <!-- End Slide -->
-
-          <!-- Slide -->
+          <!-- Slide 3 -->
           <div class="swiper-slide">
-            <!-- Container -->
-            <div class="container content-space-t-2 content-space-b-3">
-              <div class="row align-items-lg-md-center">
+            <div class="container content-space-t-0.5 content-space-b-3">
+              <div class="row align-items-lg-center">
                 <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                   <div class="mb-6">
-                    <h3 class="display-4 mb-4">لوله گالوانیزه</h3>
-                    <p> لوله‌های گالوانیزه معمولاً در کاربردهای ساختمانی، صنعتی و انتقال آب یا سیالات استفاده می‌شوند.
-                      لوله‌ی‌ گالوانیزه در واقع همان لوله‌ی‌ فولادی است که برای حفاظت در برابر خوردگی و آسیب‌پذیری، سطح آن را با فلز روی پوشش می‌دهند. پوشش گالوانیزه، طول عمر لوله را افزایش داده و همچنین مقاومت آن را در برابر خوردگی و رسوبات معدنی افزایش می‌دهد. لوله‌های گالوانیزه مدت زیادی از مهم‌ترین اجزاء در خطوط آبرسانی بوده‌ و هستند.</p>
+                    <h3 class="display-4" dir="rtl" style="font-family: Arial; font-size: 28px;">لوله گالوانیزه</h3>
+                    <p class="d-none d-md-block">لوله‌های گالوانیزه معمولاً در کاربردهای ساختمانی، صنعتی و انتقال آب یا سیالات استفاده می‌شوند.</p>
                   </div>
-
                   <div class="d-flex gap-2">
-                    <a class="btn btn-primary rounded-pill" href="#">نمایش جزئیات محصول</a>
-
+                    <a class="btn btn-primary btn-sm rounded-pill" href="#">نمایش جزئیات محصول</a>
                   </div>
                 </div>
-                <!-- End Col -->
-
                 <div class="col-lg-6 order-lg-1">
-                  <div class="w-75 mx-auto">
-                    <img class="img-fluid" src="/images/index/lole galvanize.png" alt="Image Description">
+                  <div class="w-50 mx-auto">
+                    <img class="img-fluid" src="/images/index/lolegalvanize.png" alt="Image Description" style="max-width: 100%; height: auto;">
                   </div>
                 </div>
-                <!-- End Col -->
               </div>
-              <!-- End Row -->
             </div>
-            <!-- End Container -->
           </div>
-          <!-- End Slide -->
         </div>
 
-        <!-- Arrows -->
-        <div class="js-swiper-shop-classic-hero-button-prev swiper-button-prev"></div>
-        <div class="js-swiper-shop-classic-hero-button-next swiper-button-next"></div>
-      </div>
-      <!-- End Swiper Main Slider -->
+  
+        <!---------- Arrows ----------->
+        <style>
+  /* استایل مخفی کردن دکمه‌ها در موبایل */
+  @media (max-width: 576px) {
+    .js-swiper-shop-classic-hero-button-prev,
+    .js-swiper-shop-classic-hero-button-next {
+      display: none; /* مخفی کردن دکمه‌ها */
+    }
+  }
+</style>
 
+<div class="js-swiper-shop-classic-hero-button-prev swiper-button-prev"></div>
+<div class="js-swiper-shop-classic-hero-button-next swiper-button-next"></div>
+
+      <!-- End Swiper Main Slider -->
+  
       <!-- Swiper Thumbs Slider -->
       <div class="position-absolute bottom-0 start-0 end-0 mb-3">
-        <div class="js-swiper-shop-hero-thumbs swiper" style="max-width: 13rem;">
+        <div class="js-swiper-shop-hero-thumbs swiper" style="max-width: 20rem; margin: 0 auto;">
           <div class="swiper-wrapper">
-            <!-- Slide -->
+            <!-- Thumbnail 1 -->
             <div class="swiper-slide">
               <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
-                <img class="swiper-thumb-progress-avatar-img" src="/images/index/generator01.png"
-                  alt="Image Description">
+                <img class="swiper-thumb-progress-avatar-img" src="/images/index/generator01.png" alt="Image Description" style="max-width: 100%; height: auto;">
               </a>
             </div>
-            <!-- End Slide -->
-
-            <!-- Slide -->
+            <!-- Thumbnail 2 -->
             <div class="swiper-slide">
               <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
-                <img class="swiper-thumb-progress-avatar-img" src="/images/index/mashal gazoeili.png"
-                  alt="Image Description">
+                <img class="swiper-thumb-progress-avatar-img" src="/images/index/mashal gazoeili.png" alt="Image Description" style="max-width: 100%; height: auto;">
               </a>
             </div>
-            <!-- End Slide -->
-
-            <!-- Slide -->
+            <!-- Thumbnail 3 -->
             <div class="swiper-slide">
               <a class="js-swiper-thumb-progress swiper-thumb-progress-avatar" href="javascript:;" tabindex="0">
-                <img class="swiper-thumb-progress-avatar-img" src="/images/index/lole galvanize.png"
-                  alt="Image Description">
+                <img class="swiper-thumb-progress-avatar-img" src="/images/index/lolegalvanize.png" alt="Image Description" style="max-width: 100%; height: auto;">
               </a>
             </div>
-            <!-- End Slide -->
           </div>
         </div>
       </div>
       <!-- End Swiper Thumbs Slider -->
     </div>
     <!-- End Hero -->
+  </main>
+  
 
     <!-- Icon Blocks -->
-    <div class="border-bottom">
+    <div class="border-bottom-white grid-container">
       <div class="container content-space-2">
         <div class="row">
           <div class="col-md-4 mb-7 mb-md-0">
@@ -361,9 +439,9 @@
     <!-- End Icon Blocks -->
 
     <!-- Card Grid -->
-    <div class="container content-space-2 content-space-lg-3">
+    <div class="container content-space-0.2 content-space-lg-2">
       <!-- Heading -->
-      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-4">
         <h2>خرید بهترین محصولات در فروشگاه</h2>
       </div>
       <!-- End Heading -->
@@ -376,7 +454,7 @@
               width: 100%;  /* تصویر تمام عرض کارت را می‌گیرد */
               height: 200px;  /* ارتفاع ثابت */
               object-fit: contain;  /* تصویر را فیت می‌کند بدون اینکه خارج از کادر برود */
-            } 
+            }
             .small-img-fixed {
               width: 100%;  /* تصویر تمام عرض کارت را می‌گیرد */
               height: 80px;  /* ارتفاع ثابت */
@@ -387,13 +465,13 @@
             }
             .custom-card-border {
               border: 2px solid #D1913E !important;
-            } 
+            }
             .custom-text {
              font-weight: bold;       /* برای بولد کردن متن */
               color: #A92420 !important; /* تغییر رنگ متن */
-           }  
+           }
           </style>
-          
+
           <div class="card card-bordered shadow-none overflow-hidden card-width custom-card-border" >
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
@@ -469,8 +547,8 @@
       </div>
       <!-- End Row -->
 
-      <div class="text-center">
-        <p class="large custom-text">فروش ویژه محصولات برای مدت زمانی محدود</p>
+      <div class="text-center mt-8">
+        <p class="large custom-text font-size: 36px; font-weight: bold;">فروش ویژه محصولات برای مدت زمانی محدود</p>
       </div>
     </div>
     <!-- End Card Grid -->
@@ -586,7 +664,7 @@
                 <a class="link-sm link-secondary" href="#">بست و اتصالات</a>
               </div>
               <a class="text-body" href="/product-overview.html">شیرآلات پلیمری</a>
-              <p id="price-tag"class="card-text"style="color:#800517;"><strong>100000 تومان</strong></p>       
+              <p id="price-tag"class="card-text"style="color:#800517;"><strong>100000 تومان</strong></p>
             </div>
 
             <div class="card-footer pt-0">
@@ -1015,7 +1093,7 @@
           <div class="d-flex align-items-start flex-column h-100">
             <!-- Logo -->
             <a class="w-100 mb-3 mb-lg-auto" href="/images/index.html" aria-label="Front">
-              <img class="brand" src="/golafrooz-1.png" alt="Logo">
+              <img class="brand" src="/images/golafrooz-1.png" alt="Logo">
             </a>
             <!-- End Logo -->
 
