@@ -349,7 +349,7 @@
 <div class="js-swiper-shop-classic-hero-button-next swiper-button-next"></div>
 
       <!-- End Swiper Main Slider -->
-  
+
       <!-- Swiper Thumbs Slider -->
       <div class="position-absolute bottom-0 start-0 end-0 mb-3">
         <div class="js-swiper-shop-hero-thumbs swiper" style="max-width: 20rem; margin: 0 auto;">
@@ -1011,11 +1011,11 @@
     </style>
     <!-- v -->
     <div class="custom-bg">
-      <div class="container content-space-2">
+      <div class="container content-space-1">
         <div class="w-md-75 w-lg-50 text-center mx-md-auto">
           <div class="row justify-content-lg-between">
             <!-- Heading -->
-            <div class="mb-5">
+            <div class="m-0">
               <span class="text-cap">ثبت نام</span>
               <h2>اخبار جدید را دریافت کنید</h2>
             </div>
@@ -1254,26 +1254,64 @@
   </a>
 
   <!-- Offcanvas Search -->
+   <style>
+    .btn-close {
+      width: 15px; /* تنظیم عرض دکمه */
+      height: 15px; /* تنظیم ارتفاع دکمه */
+      padding: 0;   /* حذف فاصله داخلی */
+    }
+    /* تنظیمات پیش‌فرض برای همه دستگاه‌ها */
+    .input-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px; /* فاصله بین فیلد ورودی و دکمه */
+      max-width: 100%; /* عرض کامل در دستگاه‌های کوچک */
+    }
+
+    /* برای دستگاه‌های بزرگ‌تر (ریسپانسیو) */
+    @media (min-width: 768px) {
+      .input-card {
+        flex-direction: row; /* قرار دادن فیلد ورودی و دکمه در یک ردیف در دستگاه‌های بزرگ‌تر */
+        max-width: 75%; /* عرض 75 درصد در دستگاه‌های متوسط */
+      }
+
+      .input-card-form {
+        flex: 1; /* فیلد ورودی فضای بیشتری بگیرد */
+      }
+
+      .btn {
+        flex-shrink: 5rem; /* دکمه در اندازه خود بماند و کوچک نشود */
+      }
+    }
+
+    @media (min-width: 992px) {
+      .input-card {
+        max-width: 100%; /* عرض 100 درصد برای دسکتاپ */
+      }
+    }
+
+   </style>
   <div class="offcanvas offcanvas-top offcanvas-navbar-search bg-light" tabindex="-1" id="offcanvasNavbarSearch">
     <div class="offcanvas-body">
       <div class="container">
         <div class="w-lg-75 mx-lg-auto">
-          <div class="d-flex justify-content-end mb-3">
+          <div class="d-flex justify-content-end">
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
 
-          <div class="mb-7">
+          <div class="mb-1">
             <!-- Form -->
             <form>
               <!-- Input Card -->
-              <div class="input-card">
-                <div class="input-card-form">
-                  <input type="text" class="form-control form-control-lg" placeholder="جستجو محصولات"
-                    aria-label="جستجو محصولات">
-                </div>
-                <button type="button" class="btn btn-primary btn-lg">جستجو کردن</button>
+            <div class="input-card" style="max-width: 850px; padding: 4px;">
+              <div class="input-card-form">
+                <input type="text" class="form-control form-control-sm" style="font-size: 14px; height: 30px; text-align: right; direction: rtl; padding-right: 0.01px;" placeholder="جستجو محصولات" aria-label="جستجو محصولات">
               </div>
-              <!-- End Input Card -->
+              <button type="button" class="btn btn-primary btn-sm mt-0"style="padding: 5px 10px;">جستجو کردن</button>
+            </div>
+            <!-- End Input Card -->
+
             </form>
             <!-- End Form -->
           </div>
@@ -1288,6 +1326,7 @@
   <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasNavbarShoppingCart">
     <div class="offcanvas-header justify-content-between border-0 pb-0 ">
       <span> 3 کالا</span>
+      
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
