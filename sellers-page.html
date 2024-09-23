@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+        <!-- Bootstrap Icons -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- لینک به CSS Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+
+    <title>مرحبًا بالعالم!</title>
+  </head>
+  <body>
+    <div class="container bg-info">
+      <div class="col-md-6 col-lg-6">
+        <!-- Profile Photo Section -->
+        <style>
+          .small-font {
+            font-size: 8px;
+        }
+
+          #map {
+              height: 400px; /* ارتفاع مشخص برای نمایش نقشه */
+              width: 100%; /* عرض کامل */
+          }
+
+          /* اضافه کردن گردی به دکمه از چهار طرف */
+          .btn-rounded {
+              border-radius: 6px !important;
+          }
+          .left-align-container {
+            float: left;
+            width: 100%;
+          }
+          .profile-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+          }
+          .profile-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+          }
+          .edit-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+          }
+          .edit-icon i {
+            font-size: 18px;
+          }
+          .file-input {
+            display: none;
+          }
+          .input-file {
+            visibility: hidden;
+            position: absolute;
+          }
+          .input-group-addon {
+            background-color: #f1f1f1;
+            border-left: none;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+          }
+          .form-control {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            text-align: right;
+          }
+          .btn-success {
+            background-color: #0d6efd;
+          }
+          .input-group-btn {
+            padding: 0;
+          }
+          .custom-width {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+          }
+        </style>
+
+
+        <div class="d-flex justify-content-center align-items-center min-vh-80 mb-4 mt-4">
+          <div class="profile-container">
+            <!-- Profile picture -->
+            <img id="profileImage" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile Picture">
+            <!-- Edit icon -->
+            <div class="edit-icon" onclick="document.getElementById('fileInput').click();">
+              <i class="bi bi-camera"></i>
+            </div>
+            <!-- Hidden file input -->
+            <input type="file" id="fileInput" class="file-input" accept="image/*" onchange="changeProfileImage(event)">
+          </div>
+        </div>
+
+        <!-- Video Upload Section -->
+
+        <div class="row justify-content-center gx-3">
+          <div class="custom-width">
+            <h4 style="font-size: 16px;">ویدیوهای هفتگی خود را بارگزاری کنید.</h4>
+            <form>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="fas fa-video"></i>
+                </span>
+                <input type="text" class="form-control" disabled placeholder="بارگذاری ویدیو">
+                <span class="input-group-btn">
+                  <label class="btn btn-secondary" for="videoUpload"><i class="fa fa-search"></i>بارگذاری</label>
+                  <input type="file" name="video" class="input-file" id="videoUpload" accept="video/*">
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Start of Forms Section -->
+      <form class="needs-validation" novalidate>
+        <div class="row justify-content-center gx-3">
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4 position-relative mt-1 mb-3">
+              <label for="validationTooltip01" class="form-label">نام</label>
+              <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+              <div class="valid-tooltip">
+                Looks good!
+              </div>
+            </div>
+
+            <div class="col-md-4 position-relative mt-1 mb-3">
+              <label for="validationTooltip02" class="form-label">نام خانوادگی</label>
+              <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+              <div class="valid-tooltip">
+                Looks good!
+              </div>
+            </div>
+
+            <div class="col-md-4 position-relative mt-1 mb-3">
+              <label for="validationTooltipUsername" class="form-label">کد ملی</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                <div class="invalid-tooltip">
+                  لطفا کد ملی خود را وارد کنید.
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!-- Province and City Selection -->
+            <div class="row justify-content-center gx-3">
+              <div class="col-md-4 position-relative mt-1 mb-3">
+                <label for="province" class="form-label">استان</label>
+                <select class="form-select" id="province" required>
+                  <option selected disabled value=""></option>
+                  <option value="آذربایجان شرقی">آذربایجان شرقی</option>
+                        <option value="آذربایجان غربی">آذربایجان غربی</option>
+                        <option value="اردبیل">اردبیل</option>
+                        <option value="اصفهان">اصفهان</option>
+                        <option value="البرز">البرز</option>
+                        <option value="ایلام">ایلام</option>
+                        <option value="بوشهر">بوشهر</option>
+                        <option value="تهران">تهران</option>
+                        <option value="چهارمحال و بختیاری">چهارمحال و بختیاری</option>
+                        <option value="خراسان جنوبی">خراسان جنوبی</option>
+                        <option value="خراسان رضوی">خراسان رضوی</option>
+                        <option value="خراسان شمالی">خراسان شمالی</option>
+                        <option value="خوزستان">خوزستان</option>
+                        <option value="زنجان">زنجان</option>
+                        <option value="سمنان">سمنان</option>
+                        <option value="سیستان و بلوچستان">سیستان و بلوچستان</option>
+                        <option value="فارس">فارس</option>
+                        <option value="قزوین">قزوین</option>
+                        <option value="قم">قم</option>
+                        <option value="کردستان">کردستان</option>
+                        <option value="کرمان">کرمان</option>
+                        <option value="کرمانشاه">کرمانشاه</option>
+                        <option value="کهگیلویه و بویراحمد">کهگیلویه و بویراحمد</option>
+                        <option value="گلستان">گلستان</option>
+                        <option value="گیلان">گیلان</option>
+                        <option value="لرستان">لرستان</option>
+                        <option value="مازندران">مازندران</option>
+                        <option value="مرکزی">مرکزی</option>
+                        <option value="هرمزگان">هرمزگان</option>
+                        <option value="همدان">همدان</option>
+                        <option value="یزد">یزد</option>
+                </select>
+                <div class="invalid-tooltip">
+                  لطفا یک استان معتبر انتخاب کنید.
+                </div>
+              </div>
+
+              <div class="col-md-4 position-relative mt-1 mb-3">
+                <label for="city" class="form-label">شهر</label>
+                <select class="form-select" id="city" required>
+                  <option selected disabled value=""></option>
+                </select>
+                <div class="invalid-tooltip">
+                  لطفا شهر مورد نظر را انتخاب کنید.
+                </div>
+              </div>
+
+            <!-- Postal Code and Address -->
+            <div class="col-md-4 position-relative mt-1 mb-3">
+              <label for="validationTooltip05" class="form-label">کدپستی</label>
+              <input type="text" class="form-control" id="postalCodeInput" required>
+              <div class="invalid-tooltip">
+                لطفا کدپستی را صحیح وارد کنید.
+              </div>
+              <div id="postalCodeFeedback" class="valid-feedback">
+                Postal code is valid.
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center gx-3">
+            <form class="row justify-content-center gx-3">
+              <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-12 position-relative mt-1 mb-3">
+                  <label for="validationTooltip01" class="form-label">آدرس</label>
+                  <input type="text" class="form-control" id="validationTooltip01" value="آدرس:" required>
+                  <div class="valid-tooltip">
+                    Looks good!
+                  </div>
+                </div>
+              </form>
+            </form>
+
+                  <div class="row justify-content-center gx-2">
+                    <!-- First column for image upload -->
+                    <div class="col-md-4 mt-1 mb-3">
+                      <label for="imageUpload1" class="form-label">جواز کسب یا پروانه تاسیس</label>
+                      <input class="form-control" type="file" id="imageUpload1" accept="image/*" required>
+                      <div class="invalid-feedback">
+                        Please upload a valid image file.
+                      </div>
+                      <div class="valid-feedback">
+                        Image file looks good!
+                      </div>
+                    </div>
+
+                    <!-- Second column for image upload -->
+                    <div class="col-md-4 mt-1 mb-3">
+                      <label for="imageUpload2" class="form-label">پشت و روی کارت ملی</label>
+                      <input class="form-control" type="file" id="imageUpload2" accept="image/*" required>
+                      <div class="invalid-feedback">
+                        Please upload a valid image file.
+                      </div>
+                      <div class="valid-feedback">
+                        Image file looks good!
+                      </div>
+                    </div>
+
+                    <!-- Third column for image upload -->
+                    <div class="col-md-4 mt-1 mb-3">
+                      <label for="imageUpload3" class="form-label">صفحه اول شناسنامه</label>
+                      <input class="form-control" type="file" id="imageUpload3" accept="image/*" required>
+                      <div class="invalid-feedback">
+                        Please upload a valid image file.
+                      </div>
+                      <div class="valid-feedback">
+                        Image file looks good!
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center gx-2">
+                    <!-- First column for image upload -->
+                    <div class="col-md-4 mt-1 mb-3">
+                      <label for="imageUpload1" class="form-label">روزنامه رسمی شرکت</label>
+                      <input class="form-control" type="file" id="imageUpload1" accept="image/*" required>
+                      <div class="invalid-feedback">
+                        Please upload a valid image file.
+                      </div>
+                      <div class="valid-feedback">
+                        Image file looks good!
+                      </div>
+                    </div>
+
+                    <!-- Second column for image upload -->
+                    <div class="col-md-8 mt-1 mb-3">
+                      <label for="imageUpload2" class="form-label">سند موقعیت مکانی یا قولنامه دارای کد رهگیری</label>
+                      <input class="form-control" type="file" id="imageUpload2" accept="image/*" required>
+                      <div class="invalid-feedback">
+                        Please upload a valid image file.
+                      </div>
+                      <div class="valid-feedback">
+                        Image file looks good!
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center gx-2">
+                  <div class="col-md-6 position-relative mt-1 mb-3">
+                    <label for="validationTooltipUsername" class="form-label">شماره حساب</label>
+                    <div class="input-group has-validation">
+                      <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                      <div class="invalid-tooltip">
+                        لطفا شماره حساب خود را وارد کنید.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 position-relative mt-1 mb-3">
+                    <label for="validationTooltipUsername" class="form-label">شماره شبا</label>
+                    <div class="input-group has-validation">
+                      <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                      <div class="invalid-tooltip">
+                        لطفا شماره تایید شبای خود را وارد کنید.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                  <!-- فرم اصلی -->
+
+                <form id="mainForm">
+                  <!-- فیلد مخفی برای ذخیره مختصات انتخابی -->
+                  <input type="hidden" id="savedLocation" name="location">
+
+                  <!-- فیلد برای نمایش مختصات ذخیره‌شده و دکمه انتخاب لوکیشن کنار آن -->
+                  <div class="mb-5 mt-1">
+                    <label for="selectedLocation" class="form-label">مختصات ذخیره‌شده:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="selectedLocation" placeholder="مختصات ذخیره شده" readonly>
+                        <button type="button" class="btn btn-primary btn-rounded" data-bs-toggle="modal" data-bs-target="#locationModal">
+                            انتخاب لوکیشن از روی نقشه
+                        </button>
+                    </div>
+                </div>
+              </form>
+
+
+            <!-- مودال انتخاب لوکیشن -->
+            <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="locationModalLabel">انتخاب لوکیشن از روی نقشه</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="بستن"></button>
+                      </div>
+                      <div class="modal-body">
+                          <!-- جستجوی مکان -->
+                          <div class="mb-3">
+                              <label for="searchLocation" class="form-label">جستجوی شهر یا منطقه:</label>
+                              <div class="input-group">
+                                  <input type="text" class="form-control" id="searchLocation" placeholder="نام شهر یا منطقه را وارد کنید">
+                                  <button type="button" class="btn btn-secondary" id="searchBtn">جستجو</button>
+                              </div>
+                          </div>
+                          <!-- نقشه -->
+                          <div id="map"></div>
+                          <!-- نمایش مختصات انتخابی -->
+                          <div class="mt-3">
+                              <label for="location" class="form-label">مختصات انتخابی:</label>
+                              <input type="text" class="form-control" id="location" placeholder="مختصات در اینجا نمایش داده می‌شود" readonly>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                          <button type="button" class="btn btn-primary" id="saveLocationBtn">ذخیره لوکیشن</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">ثبت نام</button>
+
+
+
+
+
+
+
+
+        </form>
+      </div>
+    </div>
+
+    <!-- JavaScript for province-city dropdowns and validation -->
+    <script>
+      const citiesByProvince = {
+        "آذربایجان شرقی": ["تبریز", "مراغه", "مرند", "اهر", "هشترود", "بستان‌آباد", "جلفا", "میانه", "اسکو", "سراب"],
+                "آذربایجان غربی": ["ارومیه", "خوی", "بوکان", "میاندوآب", "مهاباد", "سلماس", "نقده", "شاهین‌دژ", "پیرانشهر", "ماکو"],
+                "اردبیل": ["اردبیل", "پارس‌آباد", "مشگین‌شهر", "خلخال", "نمین", "بیله‌سوار", "گرمی", "نیر"],
+                "اصفهان": ["اصفهان", "کاشان", "خمینی‌شهر", "شاهین‌شهر", "فلاورجان", "نجف‌آباد", "نطنز", "زرین‌شهر", "آران و بیدگل"],
+                "البرز": ["کرج", "نظرآباد", "فردیس", "اشتهارد", "هشتگرد", "محمدشهر", "مشکین‌دشت"],
+                "ایلام": ["ایلام", "دهلران", "مهران", "آبدانان", "دره‌شهر", "ایوان"],
+                "بوشهر": ["بوشهر", "برازجان", "دشتی", "کنگان", "جم", "عسلویه", "اهرم", "دیر"],
+                "تهران": ["تهران", "ری", "اسلام‌شهر", "شهریار", "ورامین", "پاکدشت", "قدس", "بهارستان", "رباط‌کریم", "دماوند", "فیروزکوه"],
+                "چهارمحال و بختیاری": ["شهرکرد", "بروجن", "فارسان", "لردگان", "سامان", "فرخ‌شهر", "هفشجان"],
+                "خراسان جنوبی": ["بیرجند", "طبس", "فردوس", "قاین", "نهبندان", "سرایان", "بشرویه"],
+                "خراسان رضوی": ["مشهد", "نیشابور", "سبزوار", "تربت‌حیدریه", "تربت‌جام", "چناران", "کاشمر", "قوچان", "فریمان"],
+                "خراسان شمالی": ["بجنورد", "شیروان", "اسفراین", "آشخانه", "فاروج", "گرمه", "جاجرم"],
+                "خوزستان": ["اهواز", "آبادان", "خرمشهر", "دزفول", "ماهشهر", "شوشتر", "اندیمشک", "بهبهان", "رامهرمز", "شادگان"],
+                "زنجان": ["زنجان", "ابهر", "خرمدره", "ماه‌نشان", "سلطانیه", "طارم", "ایجرود"],
+                "سمنان": ["سمنان", "شاهرود", "دامغان", "گرمسار", "مهدی‌شهر", "سرخه"],
+                "سیستان و بلوچستان": ["زاهدان", "چابهار", "ایرانشهر", "زابل", "سراوان", "خاش", "کنارک", "نیک‌شهر"],
+                "فارس": ["شیراز", "مرودشت", "کازرون", "فسا", "داراب", "لار", "نی‌ریز", "جهرم", "لامرد", "اقلید"],
+                "قزوین": ["قزوین", "تاکستان", "آبیک", "البرز", "بویین‌زهرا", "خرمدشت", "محمدیه"],
+                "قم": ["قم"],
+                "کردستان": ["سنندج", "مریوان", "سقز", "بانه", "بیجار", "قروه", "دیواندره", "کامیاران"],
+                "کرمان": ["کرمان", "رفسنجان", "سیرجان", "جیرفت", "زرند", "بم", "کهنوج", "بردسیر", "بافت"],
+                "کرمانشاه": ["کرمانشاه", "اسلام‌آباد غرب", "هرسین", "صحنه", "پاوه", "سرپل ذهاب", "قصرشیرین", "سنقر"],
+                "کهگیلویه و بویراحمد": ["یاسوج", "دهدشت", "گچساران", "دوگنبدان", "لیکک", "چرام"],
+                "گلستان": ["گرگان", "گنبد کاووس", "بندر ترکمن", "آق‌قلا", "علی‌آباد کتول", "مینودشت", "کلاله"],
+                "گیلان": ["رشت", "انزلی", "لاهیجان", "لنگرود", "آستانه", "رودسر", "فومن", "صومعه‌سرا"],
+                "لرستان": ["خرم‌آباد", "بروجرد", "دورود", "کوهدشت", "الیگودرز", "ازنا", "نورآباد", "الشتر"],
+                "مازندران": ["ساری", "بابل", "آمل", "قائم‌شهر", "تنکابن", "چالوس", "نکا", "بهشهر"],
+                "مرکزی": ["اراک", "ساوه", "خمین", "محلات", "شازند", "تفرش", "دلیجان"],
+                "هرمزگان": ["بندرعباس", "قشم", "کیش", "بندر لنگه", "میناب", "جاسک", "حاجی‌آباد"],
+                "همدان": ["همدان", "ملایر", "نهاوند", "تویسرکان", "رزن", "فامنین", "اسدآباد", "بهار"],
+                "یزد": ["یزد", "اردکان", "میبد", "بافق", "مهریز", "ابرکوه", "تفت"]
+            };
+
+      document.getElementById('province').addEventListener('change', function() {
+        const province = this.value;
+        const citySelect = document.getElementById('city');
+        citySelect.innerHTML = '<option selected disabled value="">شهر را انتخاب کنید...</option>';
+
+        if (province in citiesByProvince) {
+          citiesByProvince[province].forEach(function(city) {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+          });
+        }
+      });
+
+      // Validation for the form
+      (() => {
+        'use strict';
+
+        const forms = document.querySelectorAll('.needs-validation');
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      })();
+
+      function changeProfileImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            document.getElementById('profileImage').src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom validation script -->
+    <script>
+      (function () {
+        'use strict';
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+          }, false);
+        });
+      })();
+    </script>
+
+    <!-- Custom Script for Google Map and Validation -->
+    <script>
+      // Initialize Google Map
+      let map;
+      let marker;
+
+      function initMap() {
+        // Default location (Tehran, Iran)
+        const defaultLocation = { lat: 35.6892, lng: 51.3890 };
+
+        // Create the map centered at the default location
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: defaultLocation,
+          zoom: 10,
+        });
+
+        // Place a marker on the default location
+        marker = new google.maps.Marker({
+          position: defaultLocation,
+          map: map,
+          draggable: true, // Allow the user to drag the marker
+        });
+
+        // Update latitude and longitude input fields when the marker is moved
+        google.maps.event.addListener(marker, 'dragend', function(event) {
+          document.getElementById('latitude').value = event.latLng.lat();
+          document.getElementById('longitude').value = event.latLng.lng();
+        });
+
+        // When the user clicks on the map, move the marker to the clicked location
+        google.maps.event.addListener(map, 'click', function(event) {
+          marker.setPosition(event.latLng);
+          document.getElementById('latitude').value = event.latLng.lat();
+          document.getElementById('longitude').value = event.latLng.lng();
+        });
+      }
+
+      // Custom Bootstrap form validation
+      (function () {
+        'use strict'
+
+        var forms = document.querySelectorAll('.needs-validation')
+
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })();
+    </script>
+
+    <!-- لینک به جاوااسکریپت بوت‌استرپ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- لینک به جاوااسکریپت Leaflet.js -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<script>
+     map;
+     marker;
+
+    // تنظیمات نقشه
+    function initializeMap() {
+        map = L.map('map').setView([35.6892, 51.3890], 13); // موقعیت پیش‌فرض: تهران
+
+        // بارگذاری نقشه از OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // اضافه کردن قابلیت کلیک روی نقشه برای انتخاب مکان
+        map.on('click', function(e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+
+            // اگر مارکر از قبل وجود دارد، حذف شود
+            if (marker) {
+                map.removeLayer(marker);
+            }
+
+            // ایجاد یک مارکر جدید در محل کلیک
+            marker = L.marker([lat, lng]).addTo(map);
+
+            // ثبت مختصات در ورودی
+            document.getElementById('location').value = lat + ', ' + lng;
+        });
+    }
+
+    // وقتی مودال باز شد، نقشه را رفرش کن
+    var locationModal = document.getElementById('locationModal');
+    locationModal.addEventListener('shown.bs.modal', function () {
+        if (!map) {
+            initializeMap(); // نقشه برای اولین بار ساخته می‌شود
+        } else {
+            map.invalidateSize(); // رفرش نقشه برای اطمینان از نمایش درست
+        }
+    });
+
+    // جستجوی مکان با استفاده از Nominatim API
+    document.getElementById('searchBtn').addEventListener('click', function () {
+        var locationName = document.getElementById('searchLocation').value;
+        if (locationName) {
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${locationName}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    var lat = data[0].lat;
+                    var lon = data[0].lon;
+
+                    // حرکت به مکان پیدا شده روی نقشه
+                    map.setView([lat, lon], 13);
+
+                    // اضافه کردن مارکر
+                    if (marker) {
+                        map.removeLayer(marker);
+                    }
+                    marker = L.marker([lat, lon]).addTo(map);
+
+                    // ثبت مختصات در ورودی
+                    document.getElementById('location').value = lat + ', ' + lon;
+                } else {
+                    alert("مکانی یافت نشد");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        } else {
+            alert("لطفاً نام شهر یا منطقه را وارد کنید");
+        }
+    });
+
+    // ذخیره مختصات
+    document.getElementById('saveLocationBtn').addEventListener('click', function () {
+        // گرفتن مختصات از فیلد مربوطه
+        var selectedLocation = document.getElementById('location').value;
+
+        // ذخیره مختصات در فیلد مخفی فرم اصلی
+        document.getElementById('savedLocation').value = selectedLocation;
+
+        // نمایش مختصات در فیلد خواندنی فرم اصلی
+        document.getElementById('selectedLocation').value = selectedLocation;
+
+        // بستن مودال
+        var locationModalEl = document.getElementById('locationModal');
+        var modalInstance = bootstrap.Modal.getInstance(locationModalEl);
+        modalInstance.hide();
+    });
+
+</script>
+
+  </body>
+</html>
