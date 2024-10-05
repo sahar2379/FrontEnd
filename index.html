@@ -21,7 +21,9 @@
 
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="/assets/css/theme.min.css?v=1.0">
-  
+      <!-- Link to Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
 </head>
 
@@ -64,40 +66,42 @@
 
             <!-- Dropdown -->
             <style>
-              /* کاهش اندازه متن در حالت موبایل */
-              @media (max-width: 576px) {
-                .hs-has-sub-menu .nav-link, /* لینک‌های منوی کشویی */
-                .nav-item .nav-link { /* لینک‌های عادی منو */
-                  font-size: 14px; /* تغییر اندازه فونت لینک‌ها */
-                }
+/* Reduce text size on mobile */
+@media (max-width: 576px) {
+  .hs-has-sub-menu .nav-link, /* Dropdown menu links */
+  .nav-item .nav-link { /* Regular menu links */
+    font-size: 14px; /* Change font size of links */
+  }
 
-                .hs-sub-menu .dropdown-item {
-                  font-size: 12px; /* تغییر اندازه فونت آیتم‌های منوی کشویی */
-                }
-              }
-              /* تنظیم Flexbox برای نمایش آیتم‌ها به صورت افقی */
-              @media (max-width: 576px) {
-                .navbar-nav {
-                  display: flex;
-                  flex-direction: column;
-                  align-items: flex-start;
-                }
+  .hs-sub-menu .dropdown-item {
+    font-size: 12px; /* Change font size of dropdown items */
+  }
+}
 
-                .hs-has-sub-menu,
-                .nav-item {
-                  width: 100%;
-                }
+/* Set Flexbox to display items horizontally */
+@media (max-width: 576px) {
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-                .nav-link {
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                }
+  .hs-has-sub-menu,
+  .nav-item {
+    width: 100%;
+  }
 
-                .dropdown-toggle::after {
-                  margin-left: auto; /* نمایش فلش در سمت راست */
-                }
-              }
+  .nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdown-toggle::after {
+    margin-left: auto; /* Display arrow on the right */
+  }
+}
+
             </style>
             <li class="hs-has-sub-menu nav-item">
               <a id="listingsDropdown" class="hs-mega-menu-invoker nav-link dropdown-toggle text-black" href="#" role="button"
@@ -197,13 +201,149 @@
 
   <!-- ========== END HEADER ========== -->
 
+   <!-------------------------------- icon hover  --------------------------------------->
+
+         <style>
+/* Basic settings */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  height: 2000px; /* Height for scroll test */
+}
+
+/* Fixed menu on the side of the screen */
+.fixed-menu {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+/* Hide the fixed menu on mobile */
+@media (max-width: 768px) {
+  .fixed-menu {
+      display: none;
+  }
+}
+
+.icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #0E3160;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #D1913E; /* yellow color for the icons */
+  font-size: 24px; /* Icon size */
+  transition: all 0.5s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  animation: pulse 1s infinite; /* Pulse animation */
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+      transform: scale(1.1); /* Initial size */
+  }
+  50% {
+      transform: scale(1.1); /* Increase size */
+  }
+  100% {
+      transform: scale(1.1); /* Return to initial size */
+  }
+}
+
+/* When the mouse hovers over the icon */
+.icon-wrapper:hover .icon {
+  width: 250px; /* Final width of the bar */
+  border-radius: 30px; /* Turn circle into rounded bar */
+  justify-content: flex-start; /* Move the text to the beginning of the bar */
+  padding-left: 15px; /* Proper space for text */
+  animation: none; /* Disable pulse animation */
+  justify-content: flex-end; /* Align text and icon to start from the right */
+  padding-right: 15px;
+}
+
+/* Style for the text inside the bar */
+.icon span {
+  margin-left: 30px;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+/* When the mouse hovers over the icon, the text is displayed */
+.icon-wrapper:hover .icon span {
+  opacity: 1;
+}
+
+/* Icon is always centered */
+.icon i {
+  position: absolute;
+  margin-top: 24px;
+  transform: translateY(-50%);
+}
+
+
+    </style>
+ <!-- Fixed menu on the side of the screen -->
+ <div class="fixed-menu">
+  <!-- Sellers -->
+  <div class="icon-wrapper">
+      <div class="icon">
+          <i class="fas fa-store"></i>
+          <span>فروشندگان</span>
+      </div>
+  </div>
+
+  <!-- Contractors -->
+  <div class="icon-wrapper">
+      <div class="icon">
+          <i class="fas fa-tools"></i>
+          <span>پیمانکاران</span>
+      </div>
+  </div>
+
+  <!-- Consultants -->
+  <div class="icon-wrapper">
+      <div class="icon">
+          <i class="fas fa-headphones"></i>
+          <span>مشاوران</span>
+      </div>
+  </div>
+
+  <!-- Supervisors -->
+  <div class="icon-wrapper">
+      <div class="icon">
+          <i class="fas fa-hard-hat"></i>
+          <span>مهندسان ناظر</span>
+      </div>
+  </div>
+</div>
+
   <!-- ========== IFRAME SPLIDE ========== -->
   <iframe src="/slider-example.html" width="100%" height="130" style="border:none;">
   </iframe>
 
 
 
-    <!-- کنترل‌های اسلایدر -->
+    <!-- slider control  -->
     <button class="carousel-control-prev" type="button" data-bs-target="#storyCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">قبلی</span>
@@ -213,7 +353,7 @@
       <span class="visually-hidden">بعدی</span>
     </button>
   </div>
-  
+
 
   <main id="content" role="main">
     <!-- Hero -->
@@ -221,91 +361,99 @@
       <!-- Swiper Main Slider -->
       <style>
         .grid-container {
-            display: grid;
-            height: 150px;
-            align-content: center;
-            grid-template-columns: center center center;
-            gap: 50px;
-            background: linear-gradient(0.1deg, #ffffff, #D1913E); /* گرادیانت از زرد به سفید */
-            padding: 10px;
+          display: grid;
+          height: 150px;
+          align-content: center;
+          grid-template-columns: center center center;
+          gap: 50px;
+          background: linear-gradient(0.1deg, #ffffff, #D1913E); /* Gradient from white to yellow */
+          padding: 10px;
         }
 
-        /* استایل ریسپانسیو برای موبایل */
+        /* Responsive style for mobile */
         @media (max-width: 768px) {
           .grid-container {
-            grid-template-columns: repeat(2, 1fr); /* دو ستون در صفحه نمایش‌های کوچکتر */
-            height: auto; /* ارتفاع خودکار در حالت موبایل */
-            padding: 5px; /* کاهش فاصله‌های داخلی */
+            grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+            height: auto; /* Auto height for mobile */
+            padding: 5px; /* Reduce inner spacing */
           }
         }
 
         @media (max-width: 576px) {
           .grid-container {
-            grid-template-columns: 1fr; /* یک ستون در نمایشگرهای خیلی کوچک */
+            grid-template-columns: 1fr; /* One column on very small screens */
             height: auto;
             padding: 5px;
           }
         }
+
       </style>
 
       <style>
-        /* استایل‌های مشترک */
-        .swiper-slide h1, .swiper-slide p {
-          text-align: start; /* تنظیم متن‌ها به حالت استارت (چپ‌چین) به طور پیش‌فرض */
-        }
+      /* Common styles */
+.swiper-slide h1, .swiper-slide p {
+  text-align: start; /* Align text to start (left-align) by default */
+}
 
-        .swiper-slide img {
-          display: block;
-          margin: 0 auto; /* وسط‌چین کردن تصویر */
-        }
+.swiper-slide img {
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
 
-        /* استایل برای حالت موبایل */
-        @media (max-width: 576px) {
-          .swiper-slide {
-            text-align: center; /* وسط‌چین کردن متن‌ها در حالت موبایل */
+.swiper-button-prev, .swiper-button-next {
+  width: 50px;  /* Button size (can be adjusted) */
+  height: 50px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
 
-          }
+/* Styles for mobile */
+@media (max-width: 576px) {
+  .swiper-slide {
+    text-align: center; /* Center-align text on mobile */
+  }
 
-          .swiper-slide .container {
-            padding: 1rem 0.5rem; /* کاهش فاصله کانتینر برای موبایل */
-          }
+  .swiper-slide .container {
+    padding: 1rem 0.5rem; /* Reduce container padding for mobile */
+  }
 
-          .swiper-slide h1 {
-            font-size: 0.5rem; /* کاهش اندازه فونت عنوان */
-          }
+  .swiper-slide h1 {
+    font-size: 0.5rem; /* Reduce heading font size */
+  }
 
-          .swiper-slide p {
-            font-size: 14px; /* کاهش اندازه فونت متن توضیحات */
-          }
+  .swiper-slide p {
+    font-size: 14px; /* Reduce description text font size */
+  }
 
-          .swiper-slide .btn {
-            font-size: 12px; /* کاهش اندازه دکمه */
-          }
+  .swiper-slide .btn {
+    font-size: 12px; /* Reduce button font size */
+  }
 
-          .swiper-slide img {
-            max-width: 70%; /* کوچک‌تر کردن عکس */
-            height: auto;
-          }
+  .swiper-slide img {
+    max-width: 70%; /* Make the image smaller */
+    height: auto;
+  }
 
-          .swiper-slide .row {
-            display: flex;
-            flex-direction: column-reverse; /* ترتیب ستون‌ها برای موبایل */
-            align-items: center; /* وسط‌چین کردن محتوا */
-          }
+  .swiper-slide .row {
+    display: flex;
+    flex-direction: column-reverse; /* Reverse column order for mobile */
+    align-items: center; /* Center-align content */
+  }
 
-          .swiper-slide .col-lg-5, .swiper-slide .col-lg-6 {
-            max-width: 100%;
-            text-align: center; /* وسط‌چین کردن ستون‌ها */
-            margin-bottom: 1rem; /* فاصله بین ستون‌ها */
-          }
+  .swiper-slide .col-lg-5, .swiper-slide .col-lg-6 {
+    max-width: 100%;
+    text-align: center; /* Center-align columns */
+    margin-bottom: 1rem; /* Add space between columns */
+  }
 
-          .swiper-slide .d-flex {
-            justify-content: center; /* وسط‌چین کردن دکمه‌ها */
-          }
-        }
+  .swiper-slide .d-flex {
+    justify-content: center; /* Center-align buttons */
+  }
+}
+
       </style>
       <div class="js-swiper-shop-classic-hero swiper" style="max-width: 100%; height: 400px; margin: 0 auto;">
-        <div class="swiper-wrapper bg-danger">
+        <div class="swiper-wrapper">
           <!-- Slide 1 -->
           <div class="swiper-slide">
             <div class="container content-space-t-0.5 content-space-b-3">
@@ -371,16 +519,17 @@
           </div>
         </div>
 
-  
+
         <!---------- Arrows ----------->
         <style>
-  /* استایل مخفی کردن دکمه‌ها در موبایل */
-  @media (max-width: 576px) {
-    .js-swiper-shop-classic-hero-button-prev,
-    .js-swiper-shop-classic-hero-button-next {
-      display: none; /* مخفی کردن دکمه‌ها */
-    }
+ /* Style to hide buttons on mobile */
+@media (max-width: 576px) {
+  .js-swiper-shop-classic-hero-button-prev,
+  .js-swiper-shop-classic-hero-button-next {
+    display: none; /* Hide buttons */
   }
+}
+
 </style>
 
 <div class="js-swiper-shop-classic-hero-button-prev swiper-button-prev"></div>
@@ -417,7 +566,7 @@
     </div>
     <!-- End Hero -->
   </main>
-  
+
 
     <!-- Icon Blocks -->
     <div class="border-bottom-white grid-container">
@@ -425,9 +574,34 @@
         <div class="row">
           <div class="col-md-4 mb-7 mb-md-0">
             <!-- Icon Block -->
+            <style>
+    /* Animation keyframes for sliding from right to left */
+    @keyframes slideRightToLeft {
+      0% {
+        transform: translateX(200%); /* Start from far right */
+        opacity: 0; /* Initially invisible */
+      }
+      100% {
+        transform: translateX(0); /* End at normal position */
+        opacity: 1; /* Fully visible */
+      }
+    }
+
+    /* Style for the icon with the ID */
+    #icon-slide-right-left {
+      opacity: 0; /* Initially hidden */
+      transform: translateX(200%); /* Start off-screen from the right */
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    /* Start the animation */
+    .start-animation {
+      animation: slideRightToLeft 1s ease forwards;
+    }
+            </style>
             <div class="d-flex">
               <div class="flex-shrink-0">
-                <img class="ps-2 avatar avatar-4x3" src="/assets/svg/illustrations/oc-protected-card.svg"
+                <img id="icon-slide-right-left" class="ps-2 avatar avatar-4x3" src="/assets/svg/illustrations/oc-protected-card.svg"
                   alt="Image Description">
               </div>
               <div class="flex-grow-1 ms-4">
@@ -438,12 +612,37 @@
             <!-- End Icon Block -->
           </div>
           <!-- End Col -->
+          <style>
+ /* Animation keyframes for sliding down */
+ @keyframes slideDown {
+  0% {
+    transform: translateY(-100px); /* Start above */
+    opacity: 0; /* Invisible */
+  }
+  100% {
+    transform: translateY(0); /* Move to normal position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Apply the animation to the icon */
+#icon-slide {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-100px); /* Start above the element */
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+/* Start the animation */
+.start-animation {
+  animation: slideDown 1s ease forwards;
+}
+          </style>
 
           <div class="col-md-4 mb-7 mb-md-0">
             <!-- Icon Block -->
             <div class="d-flex">
               <div class="flex-shrink-0">
-                <img class="ps-2  avatar avatar-4x3" src="/assets/svg/illustrations/oc-return.svg"
+                <img id="icon-slide" class="ps-2  avatar avatar-4x3" src="/assets/svg/illustrations/oc-return.svg"
                   alt="Image Description">
               </div>
               <div class="flex-grow-1 ms-4">
@@ -457,9 +656,35 @@
 
           <div class="col-md-4">
             <!-- Icon Block -->
+            <style>
+  /* Animation keyframes */
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Apply animation but hide by default */
+  #icon-animation {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+  }
+
+  /* When visible, apply the animation */
+  .animate {
+    opacity: 1;
+    animation: slideInFromLeft 0.8s ease-out forwards;
+  }
+            </style>
+
             <div class="d-flex">
               <div class="flex-shrink-0">
-                <img class="ps-2 avatar avatar-4x3" src="/assets/svg/illustrations/oc-truck.svg"
+                <img id="icon-animation" class="ps-2 avatar avatar-4x3" src="/assets/svg/illustrations/oc-truck.svg"
                   alt="Image Description">
               </div>
               <div class="flex-grow-1 ms-4">
@@ -467,6 +692,7 @@
                 <p class="small mb-0">حمل و نقل استاندارد فوری را به صورت خودکار در هر سفارش دریافت کنید.</p>
               </div>
             </div>
+
             <!-- End Icon Block -->
           </div>
           <!-- End Col -->
@@ -477,6 +703,58 @@
     <!-- End Icon Blocks -->
 
     <!-- Card Grid -->
+    <style>
+    /* Permanent animation for cards with class animated-card */
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Initial size */
+  }
+  50% {
+    transform: scale(1.05); /* Scale up */
+  }
+  100% {
+    transform: scale(1); /* Back to initial size */
+  }
+}
+
+/* Apply animation only to cards with animated-card class */
+.animated-card {
+  animation: pulse 3s infinite ease-in-out; /* Continuous animation */
+  transition: transform 0s ease;
+}
+
+/* Hover effect for cards */
+.animated-card:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.img-fixed {
+  width: 100%;  /* Image takes full width of the card */
+  height: 200px;  /* Fixed height */
+  object-fit: contain;  /* Keep image within bounds without distortion */
+}
+
+.small-img-fixed {
+  width: 100%;  /* Image takes full width */
+  height: 80px;  /* Fixed height */
+  object-fit: contain;  /* Keep image within bounds without distortion */
+}
+
+.card-width {
+  width: 100%;
+}
+
+.custom-card-border {
+  border: 2px solid #D1913E !important;
+}
+
+.custom-text {
+  font-weight: bold;       /* Bold text */
+  color: #A92420 !important; /* Change text color */
+}
+
+    </style>
+
     <div class="container content-space-0.2 content-space-lg-2">
       <!-- Heading -->
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-4">
@@ -487,30 +765,8 @@
       <div class="row mb-2">
         <div class="col-sm-6 col-md-4 mb-4">
           <!-- Card -->
-          <style>
-            .img-fixed {
-              width: 100%;  /* تصویر تمام عرض کارت را می‌گیرد */
-              height: 200px;  /* ارتفاع ثابت */
-              object-fit: contain;  /* تصویر را فیت می‌کند بدون اینکه خارج از کادر برود */
-            }
-            .small-img-fixed {
-              width: 100%;  /* تصویر تمام عرض کارت را می‌گیرد */
-              height: 80px;  /* ارتفاع ثابت */
-              object-fit: contain;  /* تصویر را فیت می‌کند بدون اینکه خارج از کادر برود */
-            }
-            .card-width {
-              width: 100%;
-            }
-            .custom-card-border {
-              border: 2px solid #D1913E !important;
-            }
-            .custom-text {
-             font-weight: bold;       /* برای بولد کردن متن */
-              color: #A92420 !important; /* تغییر رنگ متن */
-           }
-          </style>
 
-          <div class="card card-bordered shadow-none overflow-hidden card-width custom-card-border" >
+          <div class="card card-bordered shadow-none overflow-hidden card-width custom-card-border animated-card" >
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
                 <img class="img-fluid img-fixed" src="/images/index/generator02.png" alt="Image Description">
@@ -535,7 +791,7 @@
 
         <div class="col-sm-6 col-md-4 mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none overflow-hidden card-width custom-card-border" >
+          <div class="card card-bordered shadow-none overflow-hidden card-width custom-card-border animated-card" >
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
                 <img class="img-fluid img-fixed" src="/images/index/heater01.png" alt="Image Description">
@@ -560,7 +816,7 @@
 
         <div class="col-sm-6 col-md-4 mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none overflow-hidden card-width custom-card-border">
+          <div class="card card-bordered shadow-none overflow-hidden card-width custom-card-border animated-card">
             <div class="card-body d-flex align-items-center border-bottom p-0">
               <div class="w-65 border-end">
                 <img class="img-fluid img-fixed" src="/images/index/mashal01.png" alt="Image Description">
@@ -585,6 +841,50 @@
       </div>
       <!-- End Row -->
 
+      <style>
+/* Animation for the left card */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for the right card */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Cards are hidden by default */
+.card-left, .card-right {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Apply animation for the left card */
+.slide-in-left {
+  animation: slideInLeft 2s ease-out forwards;
+}
+
+/* Apply animation for the right card */
+.slide-in-right {
+  animation: slideInRight 2s ease-out forwards;
+}
+
+      </style>
+
+
       <div class="text-center mt-8">
         <p class="large custom-text font-size: 36px; font-weight: bold;">فروش ویژه محصولات برای مدت زمانی محدود</p>
       </div>
@@ -596,7 +896,7 @@
       <div class="row">
         <div class="col-md-6 mb-4 mb-md-0">
           <!-- Card -->
-          <div class="card card-lg bg-img-start"
+          <div class="card card-lg bg-img-start card-left"
             style="background-image: url(/images/index/bggray.jpeg); min-height: 30rem;">
             <div class="card-body">
               <span class="card-subtitle text-danger">فقط برای زمانی محدود</span>
@@ -652,7 +952,7 @@
 
         <div class="col-md-6">
           <!-- Card -->
-          <div class="card card-lg bg-img-start d-none d-md-block"
+          <div class="card card-lg bg-img-start d-none d-md-block card-right"
             style="background-image: url(/images/index/bggreen.jpeg); min-height: 30rem;">
             <div class="card-body">
               <div class="mb-4">
@@ -671,7 +971,29 @@
     <!-- End Card Grid -->
 
     <!-- Card Grid -->
-    <div class="container content-space-2 content-space-lg-3">
+    <style>
+/* Default cards with the class custom-animated-card only for #popular-products */
+#popular-products .custom-animated-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transition settings */
+  border: 2px solid #ddd; /* Default card border color */
+}
+
+/* Hover animation only for cards with the custom-animated-card class in #popular-products */
+#popular-products .custom-animated-card:hover {
+  transform: scale(1.05); /* Scale the card up */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Add shadow */
+  border-color: #135390; /* Change the border color on hover */
+}
+
+/* Bold text only for cards with the custom-animated-card class in #popular-products */
+#popular-products .custom-animated-card:hover .card-body a,
+#popular-products .custom-animated-card:hover .card-body p {
+  font-weight: bold; /* Bold text on hover */
+}
+
+    </style>
+
+    <div id="popular-products" class="container content-space-2 content-space-lg-3">
       <!-- Title -->
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
         <h2>محصولات پرطرفدار</h2>
@@ -681,7 +1003,7 @@
       <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3">
         <div class="col mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card card-bordered shadow-none text-center h-100 custom-animated-card">
             <div class="card-pinned">
               <img class="card-img-top mt-7"style="width: 100%; height: 180px;" src="/images/index/شیرالات-پلیمری-854x650.png" alt="Image Description">
 
@@ -728,7 +1050,7 @@
 
         <div class="col mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card card-bordered shadow-none text-center h-100 custom-animated-card">
             <div class="card-pinned">
               <img class="card-img-top mt-7 d-flex"style="width: 100%; height: 180px;" src="/images/index/بال-ولو-دو-سر-مهره-پلیمری.jpg" alt="Image Description">
 
@@ -740,7 +1062,7 @@
               </div>
             </div>
 
-            <div class="card-body"> 
+            <div class="card-body">
               <div class="mb-1">
                 <a class="link-sm link-secondary" href="#">بست و اتصالات</a>
               </div>
@@ -771,7 +1093,7 @@
 
         <div class="col mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card card-bordered shadow-none text-center h-100 custom-animated-card">
             <div class="card-pinned">
               <img class="card-img-top mt-7"style="width: 100%; height: 180px;" src="/images/index/پوشش گلخانه.png" alt="Image Description">
 
@@ -818,7 +1140,7 @@
 
         <div class="col mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card card-bordered shadow-none text-center h-100 custom-animated-card">
             <div class="card-pinned">
               <img class="card-img-top mt-7"style="width: 100%; height: 180px;" src="/images/index/سرستون.png" alt="Image Description">
 
@@ -861,7 +1183,7 @@
 
         <div class="col mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card card-bordered shadow-none text-center h-100 custom-animated-card">
             <div class="card-pinned">
               <img class="card-img-top mt-7"style="width: 100%; height: 180px;"" src="/images/index/نوارابیاری.jpg" alt="Image Description">
 
@@ -904,7 +1226,7 @@
 
         <div class="col mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card card-bordered shadow-none text-center h-100 custom-animated-card">
             <div class="card-pinned">
               <img class="card-img-top mt-7"style="width: 100%; height: 180px;"" src="/images/index/فن.jpg" alt="Image Description">
 
@@ -948,7 +1270,7 @@
 
         <div class="col mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card card-bordered shadow-none text-center h-100 custom-animated-card">
             <div class="card-pinned">
               <img class="card-img-top mt-7"style="width: 100%; height: 180px;"" src="/images/index/ناودونی.png" alt="Image Description">
 
@@ -991,7 +1313,7 @@
 
         <div class="col mb-4">
           <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card card-bordered shadow-none text-center h-100 custom-animated-card">
             <div class="card-pinned">
               <img class="card-img-top mt-7"style="width: 100%; height: 180px;"" src="/images/index/مه پاش.jpg" alt="Image Description">
 
@@ -1039,7 +1361,7 @@
       </div>
     </div>
     <!-- End Card Grid -->
-     
+
 
     <!-- Subscribe -->
     <style>
@@ -1128,7 +1450,7 @@
     <div class="container">
       <div class="row justify-content-lg-between content-space-t-2 content-space-b-lg-2">
         <div class="col-lg-3 mb-5">
-          <div class="d-flex align-items-start flex-column h-100">
+          <div class="d-flex align-items-start flex-column h-100 custom-animated-card">
             <!-- Logo -->
             <a class="w-100 mb-3 mb-lg-auto" href="/images/index.html" aria-label="Front">
               <img class="brand" src="/images/golafrooz-1.png" alt="Logo">
@@ -1268,7 +1590,7 @@
     </div>
   </footer>
   <!-- ========== END FOOTER ========== -->
-  
+
 
   <!-- ========== SECONDARY CONTENTS ========== -->
   <!-- Sign Up -->
@@ -1294,40 +1616,42 @@
   <!-- Offcanvas Search -->
    <style>
     .btn-close {
-      width: 15px; /* تنظیم عرض دکمه */
-      height: 15px; /* تنظیم ارتفاع دکمه */
-      padding: 0;   /* حذف فاصله داخلی */
+      width: 15px; /* Set button width */
+      height: 15px; /* Set button height */
+      padding: 0;   /* Remove internal padding */
     }
-    /* تنظیمات پیش‌فرض برای همه دستگاه‌ها */
+
+    /* Default settings for all devices */
     .input-card {
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      gap: 10px; /* فاصله بین فیلد ورودی و دکمه */
-      max-width: 100%; /* عرض کامل در دستگاه‌های کوچک */
+      gap: 10px; /* Space between input field and button */
+      max-width: 100%; /* Full width on smaller devices */
     }
 
-    /* برای دستگاه‌های بزرگ‌تر (ریسپانسیو) */
+    /* For larger devices (responsive) */
     @media (min-width: 768px) {
       .input-card {
-        flex-direction: row; /* قرار دادن فیلد ورودی و دکمه در یک ردیف در دستگاه‌های بزرگ‌تر */
-        max-width: 75%; /* عرض 75 درصد در دستگاه‌های متوسط */
+        flex-direction: row; /* Align input field and button in a row on larger devices */
+        max-width: 75%; /* 75% width on medium devices */
       }
 
       .input-card-form {
-        flex: 1; /* فیلد ورودی فضای بیشتری بگیرد */
+        flex: 1; /* Input field takes more space */
       }
 
       .btn {
-        flex-shrink: 5rem; /* دکمه در اندازه خود بماند و کوچک نشود */
+        flex-shrink: 5rem; /* Keep button size, don't shrink */
       }
     }
 
     @media (min-width: 992px) {
       .input-card {
-        max-width: 100%; /* عرض 100 درصد برای دسکتاپ */
+        max-width: 100%; /* 100% width for desktop */
       }
     }
+
 
    </style>
   <div class="offcanvas offcanvas-top offcanvas-navbar-search bg-light" tabindex="-1" id="offcanvasNavbarSearch">
@@ -1364,7 +1688,7 @@
   <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasNavbarShoppingCart">
     <div class="offcanvas-header justify-content-between border-0 pb-0 ">
       <span> 3 کالا</span>
-      
+
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
@@ -1452,15 +1776,12 @@
             </div>
           </div>
         </div>
-        <!-- End Product -->
-
       </div>
-      
+        <!-- End Product -->
       <div class="d-grid">
         <p class="text-center">قیمت نهایی: 35000 تومان</p>
         <a class="btn btn-primary btn-lg" href="/cart.html">سبد خرید</a>
       </div>
-
     </div>
   </div>
   <!-- ========== END SECONDARY CONTENTS ========== -->
@@ -1572,6 +1893,109 @@
       })
     })()
   </script>
+
+  <script>
+  // Define left and right cards
+  const leftCard = document.querySelector('.card-left');
+  const rightCard = document.querySelector('.card-right');
+
+  // Set up Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // If the card is in view, add the animation
+        if (entry.target.classList.contains('card-left')) {
+          entry.target.classList.add('slide-in-left');
+        } else if (entry.target.classList.contains('card-right')) {
+          entry.target.classList.add('slide-in-right');
+        }
+      } else {
+        // When the card is out of view, remove the animation so it can replay
+        entry.target.classList.remove('slide-in-left', 'slide-in-right');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Observe the cards
+  observer.observe(leftCard);
+  observer.observe(rightCard);
+
+  </script>
+
+  <script>
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    function handleScroll() {
+      const icon = document.getElementById('icon-animation');
+      if (isElementInViewport(icon)) {
+        icon.classList.add('animate');
+      } else {
+        icon.classList.remove('animate');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+  </script>
+
+  <script>
+    // Function to check if the element is in the viewport
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+    }
+
+    // Function to trigger the animation
+    function triggerIconAnimation() {
+      const icon = document.getElementById('icon-slide');
+
+      if (isInViewport(icon)) {
+        icon.classList.add('start-animation');
+      } else {
+        icon.classList.remove('start-animation');
+      }
+    }
+
+    // Add scroll event listener
+    document.addEventListener('scroll', triggerIconAnimation);
+
+    // Trigger animation when the page is loaded and scrolled
+    window.addEventListener('load', triggerIconAnimation);
+  </script>
+
+  <script>
+    // Function to check if the element is in the viewport
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+    }
+
+    // Function to trigger the animation
+    function triggerIconAnimation() {
+      const icon = document.getElementById('icon-slide-right-left');
+
+      if (isInViewport(icon)) {
+        icon.classList.add('start-animation');
+      } else {
+        icon.classList.remove('start-animation');
+      }
+    }
+
+    // Add scroll event listener
+    document.addEventListener('scroll', triggerIconAnimation);
+
+    // Trigger animation when the page is loaded and scrolled
+    window.addEventListener('load', triggerIconAnimation);
+  </script>
+
+
 
 </body>
 

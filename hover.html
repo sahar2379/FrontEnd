@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Hover Icons</title>
+    <!-- Link to Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Basic settings */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 2000px; /* Height for scroll test */
+        }
+
+        /* Fixed menu on the side of the screen */
+        .fixed-menu {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .icon-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            background-color: #007BFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: white; /* White color for the icons */
+            font-size: 24px; /* Icon size */
+            transition: all 0.7s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            animation: pulse 2s infinite; /* Pulse animation */
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1); /* Initial size */
+            }
+            50% {
+                transform: scale(1.1); /* Increase size */
+            }
+            100% {
+                transform: scale(1); /* Return to initial size */
+            }
+        }
+
+        /* When the mouse hovers over the icon */
+        .icon-wrapper:hover .icon {
+            width: 250px; /* Final width of the bar */
+            border-radius: 30px; /* Turn circle into rounded bar */
+            justify-content: flex-start; /* Move the text to the beginning of the bar */
+            padding-left: 15px; /* Proper space for text */
+            animation: none; /* Disable pulse animation */
+        }
+
+        /* Style for the text inside the bar */
+        .icon span {
+            margin-left: 30px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* When the mouse hovers over the icon, the text is displayed */
+        .icon-wrapper:hover .icon span {
+            opacity: 1;
+        }
+
+        /* Icon is always centered */
+        .icon i {
+            position: absolute;
+            margin-top: 24px;
+            transform: translateY(-50%);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Fixed menu on the side of the screen -->
+    <div class="fixed-menu">
+        <!-- Sellers -->
+        <div class="icon-wrapper">
+            <div class="icon">
+                <i class="fas fa-store"></i>
+                <span>فروشندگان</span>
+            </div>
+        </div>
+
+        <!-- Contractors -->
+        <div class="icon-wrapper">
+            <div class="icon">
+                <i class="fas fa-tools"></i>
+                <span>پیمانکاران</span>
+            </div>
+        </div>
+
+        <!-- Consultants -->
+        <div class="icon-wrapper">
+            <div class="icon">
+                <i class="fas fa-headphones"></i>
+                <span>مشاوران</span>
+            </div>
+        </div>
+
+        <!-- Supervisors -->
+        <div class="icon-wrapper">
+            <div class="icon">
+                <i class="fas fa-hard-hat"></i>
+                <span>مهندسان ناظر</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

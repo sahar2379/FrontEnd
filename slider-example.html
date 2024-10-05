@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Splide Example</title>
-  
-  <!-- لینک استایل Splide -->
+
+  <!-- Splide CSS link -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css">
 
 </head>
@@ -13,35 +13,35 @@
 <div>
    <style>
         .profile-img {
-            width: 100px; /* عرض پیش‌فرض */
-            height: 100px; /* ارتفاع پیش‌فرض */
-            border-radius: 50%; /* دایره‌ای کردن تصویر */
-            object-fit: cover; /* تطبیق محتوا با کادر */
+            width: 100px; /* Default width */
+            height: 100px; /* Default height */
+            border-radius: 50%; /* Make the image circular */
+            object-fit: cover; /* Adjust content to fit container */
             display: block;
-            margin: 0 auto; /* قرار دادن تصویر در مرکز */
-            border: 2px solid #D1913E; /* اضافه کردن border به تصویر */
+            margin: 0 auto; /* Center the image */
+            border: 2px solid #D1913E; /* Add border to the image */
           }
 
-          /* ریسپانسیو برای صفحه‌های کوچکتر از 768px (مثلاً موبایل) */
+          /* Responsive for screens smaller than 768px (e.g., mobile) */
           @media (max-width: 768px) {
             .profile-img {
-              width: 70px; /* عرض کوچکتر برای موبایل */
-              height: 70px; /* ارتفاع کوچکتر برای موبایل */
+              width: 70px; /* Smaller width for mobile */
+              height: 70px; /* Smaller height for mobile */
             }
           }
 
-          /* ریسپانسیو برای صفحه‌های خیلی کوچک‌تر از 480px (موبایل‌های کوچک) */
+          /* Responsive for screens smaller than 480px (small mobile devices) */
           @media (max-width: 480px) {
             .profile-img {
-              width: 70px; /* عرض کوچکتر برای موبایل‌های کوچک */
-              height: 70px; /* ارتفاع کوچکتر برای موبایل‌های کوچک */
+              width: 70px; /* Smaller width for small mobile devices */
+              height: 70px; /* Smaller height for small mobile devices */
             }
           }
 
     </style>
 
     <style>
-        /* استایل سفارشی برای اسلایدر */
+        /* Custom style for the slider */
         .splide__slide {
           padding-top: 5px;
           text-align: center;
@@ -50,9 +50,9 @@
         }
 
 
-        /* استایل برای تصویر دایره‌ای */
+        /* Style for circular image */
         .profile-img {
-          width: 100px;  /* سایز پیش‌فرض */
+          width: 100px;  /* Default size */
           height: 100px;
           border-radius: 50%;
           object-fit: cover;
@@ -60,43 +60,43 @@
           margin: 0 auto;
         }
 
-        /* ریسپانسیو برای صفحه‌های کوچکتر از 768px */
+        /* Responsive for screens smaller than 768px */
         @media (max-width: 768px) {
           .profile-img {
-            width: 100px;  /* کاهش سایز برای موبایل */
+            width: 100px;  /* Reduced size for mobile */
             height: 100px;
           }
         }
 
-        /* ریسپانسیو برای صفحه‌های خیلی کوچک‌تر از 480px */
+        /* Responsive for screens smaller than 480px */
         @media (max-width: 480px) {
           .profile-img {
-            width: 100px;  /* کاهش بیشتر سایز برای موبایل‌های کوچک */
-            height: 100px;
+            width: 50px;  /* Further reduced size for small mobile devices */
+            height: 50px;
           }
         }
-        /* مخفی کردن دکمه‌های pagination */
+        /* Hide pagination buttons */
     .splide__pagination {
         display: none;
       }
 
-      /* مخفی کردن دکمه‌های navigation (arrows) */
+      /* Hide navigation buttons (arrows) */
       .splide__arrows {
         display: none;
       }
 
       .splide {
-        border: none; /* حذف حاشیه از عنصر اصلی اسلایدر */
-        box-shadow: none; /* حذف سایه در صورت وجود */
+        border: none; /* Remove border from the main slider element */
+        box-shadow: none; /* Remove shadow if present */
         margin-block-start:-8px ;
       }
       .splide__track {
         border: none;
-    /* حذف حاشیه از ناحیه پیمایش اسلایدر */
+    /* Remove border from the slider's track area */
       }
       .splide__slide {
-        border: none; /* حذف حاشیه از هر اسلاید */
-        
+        border: none; /* Remove border from each slide */
+
       }
 
       .splide, .splide__track, .splide__slide {
@@ -138,16 +138,16 @@
   </div>
 </div>
 
-  <!-- لینک جاوااسکریپت Splide -->
+  <!-- Splide JavaScript link -->
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
 
-  <!-- لینک صحیح افزونه AutoScroll -->
+  <!-- Correct AutoScroll plugin link -->
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.0/dist/js/splide-extension-auto-scroll.min.js"></script>
 
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // ایجاد و تنظیم Splide
+      // Create and configure Splide
       new Splide('#splide', {
         type   : 'loop',
         drag   : 'free',
@@ -156,16 +156,16 @@
         autoScroll: {
           speed: 1,
         },
-        perPage: 10, // پیش‌فرض: نمایش 10 تصویر در صفحه بزرگ
-        gap: '0px', // فاصله بین اسلایدها
+        perPage: 10, // Default: display 10 images on larger screens
+        gap: '0px', // Gap between slides
         breakpoints: {
           768: {
-            perPage: 4, // در موبایل: نمایش 4 تصویر
-            gap: '8px',  // فاصله کمتر بین تصاویر در موبایل
+            perPage: 4, // On mobile: display 4 images
+            gap: '8px',  // Smaller gap between images on mobile
           },
           480: {
-            perPage: 2, // برای موبایل‌های کوچک‌تر: نمایش 2 تصویر
-            gap: '6px',  // فاصله کمتر بین تصاویر در موبایل‌های کوچک
+            perPage: 5, // On smaller mobile: display 2 images
+            gap: '6px',  // Even smaller gap on smaller mobile
           },
         },
       }).mount(window.splide.Extensions);
