@@ -25,9 +25,66 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
+
+
 </head>
 
 <body>
+
+  <!-- ------------------------------------------search bar-------------------------------------------------- -->
+  <style>
+    .btn:hover {
+        color: #0E3160;
+    }
+
+    .input-text:focus {
+        box-shadow: 0px 0px 0px;
+        border-color: #f8c146;
+        outline: 0px;
+    }
+
+    .form-control {
+        border: 1px solid #f8c146;
+        height: 35px; /* ارتفاع کمتر برای input */
+        border-radius: 5px 0 0 5px; /* گرد کردن گوشه‌های input */
+    }
+
+    .bg-custom { /* کلاس جدید برای تغییر رنگ پس‌زمینه */
+        background-color: #ffffff; /* رنگ دلخواه */
+        padding: 0px;
+        border-radius: 5px;
+    }
+
+    .btn-custom { /* تنظیمات جدید برای دکمه */
+        height: 35px; /* ارتفاع کمتر */
+        font-size: 14px; /* کاهش اندازه فونت */
+        padding: 5px 10px; /* فاصله داخلی کمتر */
+        border-radius: 5px; /* گرد کردن چهار طرف دکمه */
+        border: 1px solid #f8c146; /* تطبیق رنگ حاشیه */
+    }
+
+    /* عرض بیشتر در حالت دسکتاپ */
+    @media (min-width: 992px) {
+        .search-container {
+            max-width: 700px; /* عرض دلخواه در دسکتاپ */
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container-fluid d-flex justify-content-center" style="background-color: #0E3160;">
+<div class="search-container w-100">
+    <div class="input-group mb-3 mt-3 bg-custom">
+        <input type="text" class="form-control input-text" placeholder="جست و جوی محصول مورد نظر ...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <button class="btn btn-outline-warning btn-custom" type="button"><i class="fa fa-search"></i></button>
+    </div>
+</div>
+</div>
+
+  <!-- ---------------------------------------end search bar-------------------------------------------------- -->
+
+
   <!-- ========== HEADER ========== -->
 
   <header id="header"class="navbar navbar-expand-lg navbar-end navbar-light custom-navbar-bg">
@@ -38,6 +95,7 @@
     </style>
 
     <div class="container">
+      <div class="col">
       <nav class="js-mega-menu navbar-nav-wrap">
         <!-- Default Logo -->
         <a class="navbar-brand" href="/images/index.html" aria-label="Front">
@@ -197,6 +255,7 @@
         <!-- End Collapse -->
       </nav>
     </div>
+  </div>
   </header>
 
   <!-- ========== END HEADER ========== -->
@@ -336,11 +395,18 @@ body {
       </div>
   </div>
 </div>
+
+<!-- --------------------------------------------------------------------------------- -->
+
+
+
+<!-- -------------------------------------------------------------------------------- -->
+
 <!-------------------------------- end icon hover  --------------------------------------->
 
 <!-------------------------------- i frame  --------------------------------------->
   <!-- ========== IFRAME SPLIDE ========== -->
-  <iframe src="/slider-example.html" width="100%" height="130" style="border:none;">
+  <iframe src="/slider-example.html" width="100%" height="180px" style="border:none;">
   </iframe>
 <!-------------------------------- end iframe  --------------------------------------->
 
@@ -455,6 +521,11 @@ body {
 }
 
       </style>
+
+
+
+
+
       <div class="js-swiper-shop-classic-hero swiper" style="max-width: 100%; height: 400px; margin: 0 auto;">
         <div class="swiper-wrapper">
           <!-- Slide 1 -->
