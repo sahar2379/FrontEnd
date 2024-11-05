@@ -1538,7 +1538,7 @@ body {
             </a>
             <!-- End Logo -->
 
-            <p class="text-muted small mb-0">&copy; atroopa team 2024 Front RTL</p>
+            <p class="text-muted small mb-0">&copy; Moonteam 2024 Front RTL</p>
           </div>
         </div>
 
@@ -1578,42 +1578,6 @@ body {
             <li><a class="link-sm link-warning" href="#"><i class="bi-person-circle me-1"></i> حساب شما</a></li>
           </ul>
           <!-- End List -->
-
-          <!-- Button Group -->
-          <div class="btn-group">
-            <button type="button" class="btn btn-white btn-sm dropdown-toggle" id="footerSelectLanguage"
-              data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
-              <span class="d-flex align-items-center">
-                <img class="avatar avatar-xss avatar-circle ms-2" src="/assets/vendor/flag-icon-css/flags/1x1/us.svg"
-                  alt="Image description" width="16" />
-                <span>انگلیسی (US)</span>
-              </span>
-            </button>
-
-            <div class="dropdown-menu" aria-labelledby="footerSelectLanguage">
-              <a class="dropdown-item d-flex align-items-center active" href="#">
-                <img class="avatar avatar-xss avatar-circle ms-2" src="/assets/vendor/flag-icon-css/flags/1x1/us.svg"
-                  alt="Image description" width="16" />
-                <span>انگلیسی</span>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <img class="avatar avatar-xss avatar-circle ms-2" src="/assets/vendor/flag-icon-css/flags/1x1/de.svg"
-                  alt="Image description" width="16" />
-                <span>آلمانی</span>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <img class="avatar avatar-xss avatar-circle ms-2" src="/assets/vendor/flag-icon-css/flags/1x1/es.svg"
-                  alt="Image description" width="16" />
-                <span>اسپانیایی</span>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <img class="avatar avatar-xss avatar-circle ms-2" src="/assets/vendor/flag-icon-css/flags/1x1/cn.svg"
-                  alt="Image description" width="16" />
-                <span>چینی</span>
-              </a>
-            </div>
-          </div>
-          <!-- End Button Group -->
         </div>
         <!-- End Col -->
       </div>
@@ -1671,6 +1635,60 @@ body {
     </div>
   </footer>
   <!-- ========== END FOOTER ========== -->
+
+  <!-- ---------------------------------------------------menubar------------------------------------- -->
+
+  <style>
+    .bottom-nav .d-flex {
+      flex-wrap: nowrap; /* جلوگیری از شکستن خط */
+
+  }
+
+  .nav-item {
+      flex: 1;
+      text-align: center;
+      font-size: 8px;
+      padding: 2px 0;
+      color: #6c757d;
+  }
+
+  @media (max-width: 576px) {
+      .nav-item {
+          font-size: 10px;
+          display: flex;
+          flex-direction: column; /* آیکون و متن در ستون */
+          align-items: center;
+      }
+      .nav-item i {
+          font-size: 18px;
+      }
+  }
+
+</style>
+
+
+<div class="container-fluid bottom-nav d-sm-none d-block">
+  <div class="d-flex text-center">
+    <div class="nav-item">
+      <i class="bi bi-house-door"></i>
+      <span>خانه</span>
+    </div>
+    <div class="nav-item">
+      <i class="bi bi-grid"></i>
+      <span>دسته‌بندی</span>
+    </div>
+    <div class="nav-item">
+      <i class="bi bi-cart"></i>
+      <span>سبد خرید</span>
+    </div>
+    <div class="nav-item">
+      <i class="bi bi-person"></i>
+      <span>حساب من</span>
+    </div>
+  </div>
+</div>
+
+   <!-- ----------------------------------------------end menubar------------------------------------- -->
 
 
   <!-- ========== SECONDARY CONTENTS ========== -->
