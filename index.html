@@ -45,41 +45,54 @@
 
     .form-control {
         border: 1px solid #f8c146;
-        height: 35px; /* ارتفاع کمتر برای input */
-        border-radius: 5px 0 0 5px; /* گرد کردن گوشه‌های input */
+        height: 35px;
+        border-radius: 5px;
     }
 
-    .bg-custom { /* کلاس جدید برای تغییر رنگ پس‌زمینه */
-        background-color: #ffffff; /* رنگ دلخواه */
+    .bg-custom {
+        background-color: #ffffff;
         padding: 0px;
         border-radius: 5px;
     }
 
-    .btn-custom { /* تنظیمات جدید برای دکمه */
-        height: 35px; /* ارتفاع کمتر */
-        font-size: 14px; /* کاهش اندازه فونت */
-        padding: 5px 10px; /* فاصله داخلی کمتر */
-        border-radius: 5px; /* گرد کردن چهار طرف دکمه */
-        border: 1px solid #f8c146; /* تطبیق رنگ حاشیه */
+    .btn-custom {
+        height: 35px;
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #f8c146;
     }
 
     /* عرض بیشتر در حالت دسکتاپ */
     @media (min-width: 992px) {
         .search-container {
-            max-width: 700px; /* عرض دلخواه در دسکتاپ */
+            max-width: 700px;
         }
     }
+
+    /* اضافه کردن کلاس برای ثابت ماندن در بالای صفحه */
+    .fixed-search {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000; /* برای قرار گرفتن بالاتر از سایر عناصر */
+    }
+
+        /* ایجاد فاصله برای iframe زیر فرم جستجو */
+        .iframe-container {
+          margin-top: 300px; /* به اندازه‌ی ارتفاع فرم جستجو */
+      }
 </style>
 </head>
 <body>
 
-<div class="container-fluid d-flex justify-content-center" style="background-color: #0E3160;">
-<div class="search-container w-100">
-    <div class="input-group mb-3 mt-3 bg-custom">
-        <input type="text" class="form-control input-text" placeholder="جست و جوی محصول مورد نظر ...." aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <button class="btn btn-outline-warning btn-custom" type="button"><i class="fa fa-search"></i></button>
+<div class="container-fluid d-flex justify-content-center fixed-search" style="background-color: #0E3160;">
+    <div class="search-container w-100">
+        <div class="input-group mb-3 mt-3 bg-custom">
+            <input type="text" class="form-control input-text" placeholder="جست و جوی محصول مورد نظر ...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <button class="btn btn-outline-warning btn-custom" type="button"><i class="fa fa-search"></i></button>
+        </div>
     </div>
-</div>
 </div>
 
   <!-- ---------------------------------------end search bar-------------------------------------------------- -->
@@ -225,22 +238,26 @@ body {
           <span>مهندسان ناظر</span>
       </div>
   </div>
+
+  <!-- support -->
+  <div class="icon-wrapper">
+      <div class="icon">
+          <i class="fas fa-solid fa-comments"></i>
+          <span>پشتیبانی</span>
+      </div>
+  </div>
 </div>
 
-<!-- --------------------------------------------------------------------------------- -->
-
-
-
-<!-- -------------------------------------------------------------------------------- -->
 
 <!-------------------------------- end icon hover  --------------------------------------->
 
 <!-------------------------------- i frame  --------------------------------------->
   <!-- ========== IFRAME SPLIDE ========== -->
-  <iframe src="/slider-example.html" width="100%" height="180px" style="border:none;">
-  </iframe>
-<!-------------------------------- end iframe  --------------------------------------->
+  <div class="iframe-container">
+    <iframe src="/slider-example.html" width="100%" height="182px" style="border:none;" scrolling="no"></iframe>
+</div>
 
+<!-------------------------------- end iframe  --------------------------------------->
 
 <!-------------------------------- swipper  --------------------------------------->
     <!-- slider control  -->
@@ -472,6 +489,122 @@ body {
     <!-- End Hero -->
   </main>
   <!-------------------------------- end swipper  --------------------------------------->
+
+     <!-- ==========  SALE CONTENT ========== -->
+     <style>
+      .product-slider {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .product-card {
+        border: 1px solid #ff0000;
+        border-radius: 8px;
+        text-align: center;
+        padding: 16px;
+        position: relative;
+        margin: 8px;
+        background-color: #ffffff;
+    }
+
+    .discount-badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 8px;
+    }
+
+    .product-info {
+        margin-top: 10px;
+    }
+
+    .product-price {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .product-discount {
+        color: #888;
+        text-decoration: line-through;
+    }
+
+    .special-offer {
+        background-color: #ff6f61;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .special-offer p {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .view-all {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+      </style>
+
+      <div class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-md-10">
+                <div class="row product-slider">
+                    <!-- Item 1 -->
+                    <div class="col">
+                        <div class="product-card">
+                            <img src="product1.jpg" alt="Product 1" class="img-fluid">
+                            <div class="discount-badge">15%</div>
+                            <div class="product-info">
+                                <p class="product-price">تومان 1,899,000</p>
+                                <p class="product-discount">1,899,000 تومان</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="col">
+                        <div class="product-card">
+                            <img src="product2.jpg" alt="Product 2" class="img-fluid">
+                            <div class="discount-badge">35%</div>
+                            <div class="product-info">
+                                <p class="product-price">تومان 1,990,000</p>
+                                <p class="product-discount">2,990,000 تومان</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for other products... -->
+  
+                  <!-- Item 2 -->
+                  <div class="col">
+                    <div class="product-card">
+                        <img src="product2.jpg" alt="Product 2" class="img-fluid">
+                        <div class="discount-badge">35%</div>
+                        <div class="product-info">
+                            <p class="product-price">تومان 1,990,000</p>
+                            <p class="product-discount">2,990,000 تومان</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="special-offer">
+                    <p>پیشنهاد شگفت انگیز</p>
+                    <img src="offer.png" alt="Special Offer" class="img-fluid">
+                    <a href="#" class="view-all">مشاهده همه</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+       <!-- ========== END SALE CONTENT ========== -->
 
   <!-------------------------------- icon block  --------------------------------------->
     <!-- Icon Blocks -->
@@ -1352,119 +1485,320 @@ body {
     <!-- End Clients -->
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
-  <!-- ========== FOOTER ========== -->
-  <style>
-    .custom-footer-bg {
-      background-color: #135390 !important;
-    }
-  </style>
-  <footer class="border-top custom-footer-bg">
-    <div class="container">
-      <div class="row justify-content-lg-between content-space-t-2 content-space-b-lg-2">
-        <div class="col-lg-3 mb-5">
-          <div class="d-flex align-items-start flex-column h-100 custom-animated-card">
-            <!-- Logo -->
-            <a class="w-100 mb-3 mb-lg-auto" href="/images/index.html" aria-label="Front">
-              <img class="brand" src="/images/golafrooz-1.png" alt="Logo">
-            </a>
-            <!-- End Logo -->
 
-            <p class="text-muted small mb-0">&copy; Moonteam 2024 Front RTL</p>
+<!-- ========== FOOTER ========== -->
+
+<style>
+  ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer-section {
+    background: #0E3160;
+    position: relative;
+    direction: rtl; /* اضافه کردن راست‌چین */
+}
+
+.footer-cta {
+    border-bottom: 1px solid #373636;
+}
+
+.single-cta i {
+    color: #D1913E;
+    font-size: 30px;
+    float: right; /* تغییر جهت به راست */
+    margin-top: 8px;
+}
+
+.cta-text {
+    padding-right: 15px; /* تغییر به راست */
+    display: inline-block;
+
+}
+
+.cta-text h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    text-align: right; /* متن راست‌چین */
+}
+
+.cta-text span {
+    color: #757575;
+    font-size: 15px;
+    text-align: right; /* متن راست‌چین */
+}
+
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-pattern img {
+    position: absolute;
+    top: 0;
+    right: 0; /* تغییر به راست */
+    height: 330px;
+    background-size: cover;
+    background-position: 100% 100%;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+    text-align: right; /* راست‌چین کردن لوگو */
+}
+
+.footer-logo img {
+    max-width: 200px;
+}
+
+.footer-text p {
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #7e7e7e;
+    line-height: 28px;
+    text-align: right; /* متن راست‌چین */
+}
+
+.footer-social-icon span {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    text-align: right; /* راست‌چین */
+}
+
+.footer-social-icon a {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 15px; /* تغییر به چپ */
+}
+
+.footer-social-icon i {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+}
+
+.facebook-bg {
+    background: #3B5998;
+}
+
+.twitter-bg {
+    background: #55ACEE;
+}
+
+.google-bg {
+    background: #DD4B39;
+}
+
+.footer-widget-heading h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    position: relative;
+    text-align: right; /* عنوان راست‌چین */
+}
+
+.footer-widget-heading h3::before {
+    content: "";
+    position: absolute;
+    right: 0; /* تغییر به راست */
+    bottom: -15px;
+    height: 2px;
+    width: 50px;
+    background: #A92420;
+}
+
+.footer-widget ul li {
+    display: inline-block;
+    float: right; /* تغییر به راست */
+    width: 50%;
+    margin-bottom: 12px;
+    text-align: right; /* متن راست‌چین */
+}
+
+.footer-widget ul li a:hover {
+    color: #D1913E;
+}
+
+.footer-widget ul li a {
+    color: #878787;
+    text-transform: capitalize;
+}
+
+.subscribe-form {
+    position: relative;
+    overflow: hidden;
+}
+
+.subscribe-form input {
+    width: 100%;
+    padding: 14px 28px;
+    background: #2E2E2E;
+    border: 1px solid #D1913E;
+    color: #fff;
+    text-align: right; /* متن راست‌چین */
+}
+
+.subscribe-form button {
+    position: absolute;
+    left: 0; /* تغییر به چپ */
+    background: #A92420;
+    padding: 13px 20px;
+    border: 1px solid #D1913E;
+    top: 0;
+}
+
+.subscribe-form button i {
+    color: #fff;
+    font-size: 22px;
+    transform: rotate(-6deg);
+}
+
+.copyright-area {
+    background: #D1913E;
+    padding: 25px 0;
+}
+
+.copyright-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: right; /* متن راست‌چین */
+}
+
+.copyright-text p a {
+    color: #A92420;
+}
+
+.footer-menu li {
+    display: inline-block;
+    margin-right: 20px; /* تغییر به راست */
+}
+
+.footer-menu li:hover a {
+    color: #A92420;
+}
+
+.footer-menu li a {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+</style>
+<footer class="footer-section">
+  <div class="container">
+      <div class="footer-cta pt-5 pb-5">
+          <div class="row">
+              <div class="col-xl-4 col-md-4 mb-30">
+                  <div class="single-cta">
+                    <i class="fas fa-mobile-alt"></i>
+                      <div class="cta-text">
+                          <h4>موبایل ما</h4>
+                          <span>09195900820</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-md-4 mb-30">
+                  <div class="single-cta">
+                      <i class="fas fa-phone"></i>
+                      <div class="cta-text">
+                          <h4>تماس با ما</h4>
+                          <span>021-91035646</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-md-4 mb-30">
+                  <div class="single-cta">
+                      <i class="far fa-envelope-open"></i>
+                      <div class="cta-text">
+                          <h4>ایمیل ما</h4>
+                          <span>info@GolAfrooz.com</span>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-3 ms-lg-auto mb-5 mb-lg-0">
-          <h5 class="text-white">حساب</h5>
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1">
-            <li><a class="link-sm text-warning" href="#">سفارش دادن</a></li>
-            <li><a class="link-sm text-warning" href="#">گزینه های حمل و نقل</a></li>
-            <li><a class="link-sm text-warning" href="#">پیگیری یک بسته</a></li>
-            <li><a class="link-sm text-warning" href="#">در دسترس بودن کشور</a></li>
-          </ul>
-          <!-- End List -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
-          <h5 class="text-white">شرکت</h5>
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1">
-            <li><a class="link-sm text-warning" href="#">تامین مالی</a></li>
-            <li><a class="link-sm text-warning" href="#">بازیافت</a></li>
-            <li><a class="link-sm text-warning" href="#">سیاست بازگشت</a></li>
-          </ul>
-          <!-- End List -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-md-4 col-lg-2 mb-5 mb-lg-0">
-          <h5 class="mb-3 text-white">منابع</h5>
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1">
-            <li><a class="link-sm link-warning" href="#"><i class="bi-question-circle-fill me-1"></i> کمک</a></li>
-            <li><a class="link-sm link-warning" href="#"><i class="bi-person-circle me-1"></i> حساب شما</a></li>
-          </ul>
-          <!-- End List -->
-        </div>
-        <!-- End Col -->
       </div>
-      <!-- End Row -->
-
-      <hr class="my-0">
-
-      <div class="row align-items-sm-center content-space-1">
-        <div class="col-sm mb-4 mb-sm-0">
-          <!-- Socials -->
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item">
-              <a class="btn btn-soft-secondary btn-xs btn-icon" href="#">
-                <i class="bi-facebook"></i>
-              </a>
-            </li>
-
-            <li class="list-inline-item">
-              <a class="btn btn-soft-secondary btn-xs btn-icon" href="#">
-                <i class="bi-google"></i>
-              </a>
-            </li>
-
-            <li class="list-inline-item">
-              <a class="btn btn-soft-secondary btn-xs btn-icon" href="#">
-                <i class="bi-twitter"></i>
-              </a>
-            </li>
-
-            <li class="list-inline-item">
-              <a class="btn btn-soft-secondary btn-xs btn-icon" href="#">
-                <i class="bi-github"></i>
-              </a>
-            </li>
-          </ul>
-          <!-- End Socials -->
-        </div>
-
-        <div class="col-sm-auto">
-          <!-- List -->
-          <ul class="list-inline list-separator">
-            <li class="list-inline-item">
-              <a class="link-sm link-secondary" href="/page-privacy.html">حریم خصوصی و خط مشی</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="link-sm link-secondary" href="/page-terms.html">مقررات و شرایط</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="link-sm link-secondary" href="/#">مشاغل</a>
-            </li>
-          </ul>
-          <!-- End List -->
-        </div>
+      <div class="footer-content pt-5 pb-5">
+          <div class="row">
+              <div class="col-xl-4 col-lg-4 mb-50">
+                  <div class="footer-widget">
+                      <div class="footer-logo">
+                          <a href="index.html"><img src="https://i.ibb.co/QDy827D/ak-logo.png" class="img-fluid" alt="logo"></a>
+                      </div>
+                      <div class="footer-text">
+                          <p>فروشگاه بازار گلخانه، ارائه‌دهنده‌ی انواع تجهیزات و لوازم مورد نیاز برای راه‌اندازی و نگهداری گلخانه‌های مدرن است.</p>
+                      </div>
+                      <div class="footer-social-icon">
+                          <span>ما را دنبال کنید</span>
+                          <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                          <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                          <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <div class="footer-widget-heading">
+                          <h3>لینک‌های مفید</h3>
+                      </div>
+                      <ul>
+                          <li><a href="#">محصولات</a></li>
+                          <li><a href="#">پیمانکاری</a></li>
+                          <li><a href="#">مشاوره</a></li>
+                          <li><a href="#">ارتباط با ما</a></li>
+                          <li><a href="#">حمل و نقل</a></li>
+                          <li><a href="#">بازیافت</a></li>
+                          <li><a href="#">بینش ما</a></li>
+                          <li><a href="#">مشاغل</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                <div class="footer-widget">
+                  <div class="footer-widget-heading">
+                      <h3>اعتماد</h3>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                      <img src="./images/privacy/enamad_icon_text_color_white_1024.png" alt="لوگوی اعتماد اول" style="width: 45%; height: auto;">
+                      <img src="./images/privacy/zarinpal-badge.png" alt="لوگوی اعتماد دوم" style="width: 45%; height: auto;">
+                  </div>
+              </div>
+              </div>
+          </div>
       </div>
-    </div>
-  </footer>
+  </div>
+  <div class="copyright-area">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-6 col-lg-6 text-center text-lg-right">
+                  <div class="copyright-text">
+                      <p>MoonSoft &copy; 2024، تمامی حقوق محفوظ است</p>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 d-none d-lg-block text-left">
+                  <div class="footer-menu">
+                      <ul>
+                          <li><a href="#">قوانین و شرایط</a></li>
+                          <li><a href="#">حریم خصوصی</a></li>
+                          <li><a href="#">سیاست‌ها</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
   <!-- ========== END FOOTER ========== -->
 
   <!-- ---------------------------------------------------menubar------------------------------------- -->
